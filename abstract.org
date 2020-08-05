@@ -1,0 +1,2 @@
+#+title: (Abstract) Conceptual Abstraction and Analogy in Natural and Artificial Intelligence
+#+roam_alias: caanai20
