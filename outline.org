@@ -1,0 +1,62 @@
+#+title: (Outline) Conceptual Abstraction and Analogy in Natural and Artificial Intelligence
+#+todo: CLAIM EVIDENCE REASONING | DONE
+
+* Abstract
+** Intro
+*** CLAIM Analogical reasoning is important to explaining disease mechanisms.
+**** EVIDENCE Human: Researchers use analogies to understand mechanisms.
+**** EVIDENCE AI systems are unable to produce human-like explanations, despite high predictive power
+**** REASONING Mechanisms are represented structurally and analogies are alignments of structural representations for comparison
+**** REASONING Analogies can be used to identify differences, construct alternatives, and transfer knowledge
+*** CLAIM Schematization is a task of analogical reasoning
+*** CLAIM AI systems are unable to provide mechanistic explanations
+*** CLAIM Mechanism schematization helps analogical reasoning
+**** EVIDENCE
+**** REASONING
+*** CLAIM Mechanisms are highly specific, making it difficult to make comparisons between them.
+**** EVIDENCE
+**** REASONING
+** Approach
+*** CLAIM Components of specific mechanisms can be aligned
+*** CLAIM Aligned components can be used to construct the schema
+*** CLAIM Both causal and non-causal knowledge is necessary for component alignment.
+**** REASONING Entities and activities may not be present among all mechanisms.
+*** CLAIM Groups of mechanisms can be aligned simultaneously, but for simplicity, the approach will be described as a pairwise alignment.
+    The implementation is described in terms of the pairwise alignment of mechanisms, note however that it can be extended to simultaneous alignments of three or more mechanisms.
+*** CLAIM Semantic similiarity can be used to identify proxy elements.
+*** CLAIM Proxy elements can stand in for elements which are not shared between mechanisms.
+**** REASONING More distant proxies incur a higher penalty
+*** CLAIM A scoring method can be used to eliminate poor alignments.
+**** EVIDENCE The score can be interpretted as a p-value or probability of an alignment existing between the mechanisms.
+*** CLAIM Causal distance can be used to abstract chains of causal relationships.
+**** REASONING We make the assumption that the causally-upstream-of relationship is transitive (A->B and B->C implies A->C).
+**** EVIDENCE Abstracted chains of relationships form mechanism components, which can be instantiated by sub-mechanisms.
+** Example
+*** CLAIM Some prostate cancer cells "remember" their testosterone dependence.
+*** CLAIM Some breast cancer cells "remember" their estrogen dependence.
+*** CLAIM The growth of some testosterone dependent prostate cancer cells can be inhibited using LHRH(sp) inhibitor.
+*** CLAIM We can infer that an estrogen inhibiting drug like tamoxifen will inhibit the growth of enstrogen dependent breast cancer cells.
+**** REASONING Estrogen dependent breast cancer cells are analogous to testosterone dependent prostate cancer cells via their hormone dependence and that they are cancer cells.
+**** REASONING In the same way, tamoxifen is analogous to LHRH(sp) inhibitor.
+*** CLAIM Mechanism schematization will improve the ability to identify these high-level relationships to make these inferences.
+**** EVIDENCE The original insight this was taken from took 200 years to discover, even though prostate cancer hormone dependence had already been known.
+** Challenges
+*** Relationship to [[file:../../20200807142524-maximum_common_subgraph.org][maximum common subgraph problem]].
+**** It isn't as challenging as the general graph case because the nodes and edges are labeled.
+**** Only the edges are aligned.
+***** Full sub-graph alignments are not required or even necessarily desired.
+**** All pair-wise distances can be computed using the Johnson algorithm.
+**** Most mechanism graphs are fairly small.
+*** Dependence on knowledge
+**** A lot of background knowledge needs to be available and formally represented.
+**** Specific mechanisms must be formally represented.
+*** Identifying mechanisms to compare
+**** Depends on the question or kind of interest.
+**** Distance-based neighbor joining method of hierarchical clustering can be used.
+*** Evaluation of mechanism schema
+**** Formal evaluation metrics
+***** Reasoning (consistency)
+***** Human-like
+***** Utility
+****** Produce interesting predictions
+****** Useful for alignment/comparison
