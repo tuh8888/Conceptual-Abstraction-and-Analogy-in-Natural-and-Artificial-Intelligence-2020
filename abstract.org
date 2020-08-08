@@ -1,4 +1,4 @@
-#+title: (Abstract) Conceptual Abstraction and Analogy in Natural and Artificial Intelligence
+#+title: (Abstract) Automatic schematization of biological mechanisms via alignment and abstraction of causal relations among domain specific causal pathways
 #+roam_alias: caanai20
 #+LaTeX_CLASS: article
 #+LaTeX_CLASS_OPTIONS: [11pt, notitlepage]
