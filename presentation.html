@@ -1,0 +1,690 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<title>Automatic Schematization of Biological Mechanisms Via Alignment and Abstraction of Causal Relations Among Domain Specific Causal Pathways</title>
+<meta name="author" content="Harrison Pielke-Lombardo"/>
+<style type="text/css">
+.underline { text-decoration: underline; }
+</style>
+<link rel="stylesheet" href="./node_modules/reveal.js/dist/reveal.css"/>
+
+<link rel="stylesheet" href="./node_modules/reveal.js/dist/theme/sky.css" id="theme"/>
+
+<link rel="stylesheet" href="custom.css"/>
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+</head>
+<body>
+<div class="reveal">
+<div class="slides">
+<section id="sec-title-slide">
+<h2 class="title">Automatic Schematization of Biological Mechanisms Via Alignment and Abstraction of Causal Relations Among Domain Specific Causal Pathways</h2><p class="author">Harrison Pielke-Lombardo</p><p>University of Colorado Anschutz Medical Campus</p><p class="date">11/14/2020</p><aside class="notes">Hello. My name is Harrison Pielke-Lombardo and I want to start by saying thank you to the organizers for having me and thank you to the rest of you for listening to my talk. I study computatinal biology at the University of Colorado Anschutz Medical Campus with my advisor Larry Hunter. Our lab's focus is in finding ways to leverage biomedical knowledge using AI to help understand biological phenomena. My title for my talk is a little verbose so I'm going to switch to a little bit more concise title inspired by one of the talks we heard earlier today. </aside>
+</section>
+
+<section>
+<section id="slide-orgfdf4635">
+<h2 id="orgfdf4635">Inventing mechanism schema by refactoring biological pathways</h2>
+<p>
+Harrison Pielke-Lombardo
+</p>
+
+<p>
+University of Colorado Anschutz Medical Campus
+</p>
+
+<p>
+11/14/2020
+</p>
+
+<aside class="notes">
+<p>
+Today, I'm going to describe to you an analogy-inspired approach I am developing to help understand biological mechanisms.
+</p>
+
+</aside>
+
+</section>
+</section>
+<section>
+<section id="slide-orge0a7b20">
+<h2 id="orge0a7b20">Biological analogies</h2>
+<div style="width:50%;float:left">
+
+<div id="org766c84e" class="figure">
+<p><img src="images/DNA_unzipping.png" alt="DNA_unzipping.png" />
+</p>
+</div>
+
+
+<p>
+DNA replication &rarr; zipper
+</p>
+</div>
+<div style="width:50%;float: left">
+
+<div id="org31dda36" class="figure">
+<p><img src="images/lock-and-key-enzyme.jpg" alt="lock-and-key-enzyme.jpg" />
+</p>
+</div>
+
+
+<p>
+Enzyme activity &rarr; lock-and-key
+</p>
+</div>
+
+<aside class="notes">
+<p>
+I want to start by emphasizing the importance of analogies in helping biologists understand many biological phenomena. DNA replication starts with unzipping of the nucleotide bonds. There is a lock-and-key model for enzyme activity. Importantly, these analogies have helped make key predictions such as that there must be an analog to the zipper in DNA unzipping which is the enzyme helicase.
+</p>
+
+</aside>
+
+
+</section>
+</section>
+<section>
+<section id="slide-org695a996">
+<h2 id="org695a996">Biological Mechanisms</h2>
+<div style="width:50%;float:left">
+
+<div id="org02127f3" class="figure">
+<p><img src="images/darden.jpg" alt="darden.jpg" width="450px" />
+</p>
+</div>
+</div>
+<div style="width:50%;float: left">
+<blockquote>
+<p>
+Mechanisms are entities and activities organized such that they are productive of regular changes from start or set-up conditions to finish or termination conditions.
+</p>
+</blockquote>
+</div>
+
+<aside class="notes">
+<p>
+I use a definition of mechanism from Lindley Darden and Carl Craver's book  In Search of Mechanisms.
+</p>
+
+<p>
+This book is a great place to start for those interested in this kind of application of analogy to the study of biology.
+</p>
+
+</aside>
+
+
+</section>
+</section>
+<section>
+<section id="slide-org757ce32">
+<h2 id="org757ce32">What is a mechanism schema?</h2>
+<div style="width:50%;float:left">
+
+<div id="orgddb40b9" class="figure">
+<p><img src="images/darden-mechanism-schema-example.png" alt="darden-mechanism-schema-example.png" width="450px" />
+</p>
+</div>
+</div>
+<div style="width:50%;float: left">
+<blockquote>
+<p>
+A mechanism schema is a truncated abstract description of a mechanism
+that can be filled with more specific descriptions of component entities and
+activities.
+</p>
+</blockquote>
+<p>
+<a class="org-ref-reference" href="#/slide-bibliography">[dardenStrategiesDiscoveringMechanisms2002]</a>
+</p>
+</div>
+
+
+
+<aside class="notes">
+<p>
+However, what I am really interested in is the abstraction of mechanisms, which I'll refer to as mechanism schema. These allow for the transfer of causal knowledge across domains and many other uses. You can see here one of the key schemas used by biologists to explain how information contained in DNA is realized as functional proteins, referred to as the central dogma.
+</p>
+
+</aside>
+
+</section>
+</section>
+<section>
+<section id="slide-org6ca56e0">
+<h2 id="org6ca56e0">How does biological mechanism schematization relate to computational analogy?</h2>
+<ul>
+<li>Tasks
+<ul>
+<li>Retrieval</li>
+<li>Mapping</li>
+<li><b><span class="underline">Abstraction/generalization</span></b></li>
+<li><p>
+Rerepresentation
+</p>
+
+<aside class="notes">
+<p>
+If these are the tasks of computational analogy, then I think building mechanism schemas would lie in the abstraction or generalization task.
+</p>
+
+</aside></li>
+
+</ul></li>
+
+</ul>
+
+
+</section>
+</section>
+<section>
+<section id="slide-org95dab14">
+<h2 id="org95dab14">Mechanism Schematization of Cancer: Breast vs Prostate</h2>
+<div style="width:33%;float:left">
+
+<div id="org3e609dc" class="figure">
+<p><img src="images/prostate-cancer-mechanism-trans.png" alt="prostate-cancer-mechanism-trans.png" />
+</p>
+</div>
+
+<p>
+Prostate Cancer
+</p>
+</div>
+<div style="width:33%;float: left">
+
+<div id="org6cb9b59" class="figure">
+<p><img src="images/breast-cancer-mechanism-trans.png" alt="breast-cancer-mechanism-trans.png" />
+</p>
+</div>
+
+<p>
+Breast Cancer
+</p>
+</div>
+<div style="width:33%;float: left">
+
+<div id="org023c7f4" class="figure">
+<p><img src="images/general-cancer-mechanism-trans.png" alt="general-cancer-mechanism-trans.png" />
+</p>
+</div>
+
+<p>
+Hormone-driven Cancer Schema
+</p>
+</div>
+
+<aside class="notes">
+<p>
+So what does mechanism schematization look like? Well, take two hormone-driven cancers: breast cancer and prostate cancer treatment mechanisms shown here in extremely simplified form. We can generalize over these to produce the schema on the right. Note that this was historically an important analogy for the discovery of the drug tamoxifen, the first targeted cancer therapy. By understanding prostate cancer treatment, researchers were able to explain the mechanism of action for tamoxifen. While this was a massively influential discovery, it took more than 30 years to realize. We would like to make these kinds of connections computationally.
+</p>
+
+</aside>
+
+
+</section>
+</section>
+<section>
+<section id="slide-org4dc0388">
+<h2 id="org4dc0388">Goal</h2>
+<p>
+Develop and evaluate an automatic mechanism schematization method using existing biomedical ontologies, databases, and knowledge-bases and use the schema to hypothesize new relationships and disease mechanisms.
+</p>
+
+<p>
+<i>Hypothesis</i>: Analogical alignment of concrete mechanisms will produce predictive and externally coherent mechanism schema.
+</p>
+
+<aside class="notes">
+<p>
+Get here by 4:00
+</p>
+
+</aside>
+
+
+</section>
+<section id="slide-orgab8b887">
+<h3 id="orgab8b887">Starting materials</h3>
+<ul>
+<li>Input
+<ul>
+<li>Causal knowledge &rarr; concrete mechanism graphs (REACTOME/GO-CAMs/MecCog) <a class="org-ref-reference" href="#/slide-bibliography">[fabregatReactomePathwayKnowledgebase2018]</a>,<a class="org-ref-reference" href="#/slide-bibliography">[thomasGeneOntologyCausal2019]</a>,<a class="org-ref-reference" href="#/slide-bibliography">[dardenHarnessingFormalConcepts2018]</a></li>
+<li>Other knowledge &rarr; knowledge graph (KaBOB) <a class="org-ref-reference" href="#/slide-bibliography">[livingstonKaBOBOntologybasedSemantic2015]</a></li>
+
+</ul></li>
+<li>Output
+<ul>
+<li>Mechanism schema</li>
+
+</ul></li>
+<li>Optimization
+<ul>
+<li>Maximize coverage of concrete mechanisms while minimizing information loss</li>
+<li>Minimum common subgraph</li>
+
+</ul></li>
+
+</ul>
+
+</section>
+<section id="slide-org229ac0f">
+<h3 id="org229ac0f">Algorithm overview</h3>
+<p>
+Given a set of concrete mechanisms and a knowledge graph, find a mechanism schema.
+</p>
+
+<p>
+Step = causal relationship between two entities.
+</p>
+
+<ol>
+<li>Consider every possible step between two entities in the set of concrete mechanisms.</li>
+<li>Score each possible step.</li>
+<li>Assemble high scoring steps into the mechanism schema.</li>
+
+</ol>
+
+
+</section>
+<section id="slide-orgad0608f">
+<h3 id="orgad0608f">Final step score equation</h3>
+<div>
+\begin{equation}
+
+S_{GO}(A,B) = \frac
+{\sum_{t \in T_A \cap T_B} (S_A(t) + S_B(t))}
+{SV(A) + SV(B)}
+
+\end{equation}
+
+</div>
+<p>
+<a class="org-ref-reference" href="#/slide-bibliography">[wangNewMethodMeasure2007]</a>
+</p>
+
+<p>
+\[ C(a, b, m) = len(shortestpath(a, b, m)) \]
+</p>
+
+<p>
+\[ P(a, b, M) = \frac{1}{|M|} \sum_{m \in M} S_{GO}(a, a_m) S_{GO}(b, b_m) k^{-C(a_m, b_m, m)} \]
+</p>
+<aside class="notes">
+<p>
+Finally, we come to the equation which encompasses everything we discussed. As you can see, it takes the average of the relationship score over all specific mechanisms. The relationship score penalizes semantically dissimilar proxy entities and causally distant entities. Note that the causal distance calculation is between the proxy entities that we find. The scores for all possible relationships are calculated and high scoring relationships are assembled into the final mechanism abstraction.
+</p>
+
+</aside>
+
+
+
+</section>
+<section id="slide-org328c51b">
+<h3 id="org328c51b">Future directions</h3>
+<ul>
+<li>Case study: oncogenesis via developmental pathways</li>
+<li>Explore hyper-parameters:
+<ul>
+<li>score threshold</li>
+<li>proxy-entity inclusion threshold</li>
+<li>causal path distance weight</li>
+<li>semantic similarity weights</li>
+
+</ul></li>
+
+</ul>
+
+
+</section>
+</section>
+<section>
+<section id="slide-bibliography">
+<h2 id="bibliography">Acknowledgments</h2>
+<ul>
+<li>Advisor: Larry Hunter</li>
+<li>Colorado Biomedical Informatics Training Program grant T15 LM009451</li>
+
+</ul>
+
+<div style="font-size:16px">
+<ul class='org-ref-bib'><li><a id="craverSearchMechanismsDiscoveries2014">[craverSearchMechanismsDiscoveries2014]</a> <a name="craverSearchMechanismsDiscoveries2014"></a>Craver & Darden, In Search of Mechanisms: Discoveries across the Life Sciences, University of Chicago Press (2014).</li>
+<li><a id="dardenHarnessingFormalConcepts2018">[dardenHarnessingFormalConcepts2018]</a> <a name="dardenHarnessingFormalConcepts2018"></a>Darden, Kundu, Pal & Moult, Harnessing Formal Concepts of Biological Mechanism to Analyze Human Disease, <i>PLoS Computational Biology</i>, <b>14(12)</b>, 1-10 (2018). <a href="http://dx.doi.org/10.1371/journal.pcbi.1006540">doi</a>.</li>
+<li><a id="dardenStrategiesDiscoveringMechanisms2002">[dardenStrategiesDiscoveringMechanisms2002]</a> <a name="dardenStrategiesDiscoveringMechanisms2002"></a>Darden, Strategies for Discovering Mechanisms: Schema Instantiation, Modular Subassembly, Forward/Backward Chaining, <i>Philosophy of Science</i>, <b>69(S3)</b>, S354-S365 (2002). <a href="http://dx.doi.org/10.1086/341858">doi</a>.</li>
+<li><a id="fabregatReactomePathwayKnowledgebase2018">[fabregatReactomePathwayKnowledgebase2018]</a> <a name="fabregatReactomePathwayKnowledgebase2018"></a>Fabregat, Jupe, Matthews, Sidiropoulos, Gillespie, Garapati, Haw, Jassal, Korninger, May, Milacic, Roca, Rothfels, Sevilla, Shamovsky, Shorser, Varusai, Viteri, Weiser, Wu, Stein, Hermjakob & D'Eustachio, The Reactome Pathway Knowledgebase, <i>Nucleic Acids Research</i>, <b>46(D1)</b>, D649-D655 (2018). <a href="http://dx.doi.org/10.1093/nar/gkx1132">doi</a>.</li>
+<li><a id="livingstonKaBOBOntologybasedSemantic2015">[livingstonKaBOBOntologybasedSemantic2015]</a> <a name="livingstonKaBOBOntologybasedSemantic2015"></a>Livingston, Bada, Baumgartner & Hunter, KaBOB: Ontology-Based Semantic Integration of Biomedical Databases, <i>BMC Bioinformatics</i>, <b>16(1)</b>, 126 (2015). <a href="http://dx.doi.org/10.1186/s12859-015-0559-3">doi</a>.</li>
+<li><a id="machamerThinkingMechanisms2000">[machamerThinkingMechanisms2000]</a> <a name="machamerThinkingMechanisms2000"></a>Machamer, Darden & Craver, Thinking about Mechanisms, <i>Philosophy of Science</i>, <b>67(1)</b>, 1-25 (2000). <a href="http://dx.doi.org/10.1086/392759">doi</a>.</li>
+<li><a id="mitchellCanGPT3Make2020">[mitchellCanGPT3Make2020]</a> <a name="mitchellCanGPT3Make2020"></a>@miscmitchellCanGPT3Make2020,
+  title = Can GPT-3 Make Analogies?,
+  author = Mitchell, Melanie,
+  year = 2020,
+  month = aug,
+  abstract = By Melanie Mitchell,
+  file = /home/harrisonpl/Zotero/storage/VY27Q755/can-gpt-3-make-analogies-16436605c446.html,
+  howpublished = https://medium.com/@melaniemitchell.me/can-gpt-3-make-analogies-16436605c446,
+  journal = Medium,
+  language = en
+</li>
+<li><a id="pawlikRTEDRobustAlgorithm2011">[pawlikRTEDRobustAlgorithm2011]</a> <a name="pawlikRTEDRobustAlgorithm2011"></a>Pawlik & Augsten, RTED: A Robust Algorithm for the Tree Edit Distance, <i>arXiv:1201.0230 [cs]</i>,  (2011).</li>
+<li><a id="thomasGeneOntologyCausal2019">[thomasGeneOntologyCausal2019]</a> <a name="thomasGeneOntologyCausal2019"></a>Thomas, Hill, Mi, Osumi-Sutherland, Van Auken, Carbon, Balhoff, Albou, Good, Gaudet, Lewis & Mungall, Gene Ontology Causal Activity Modeling (GO-CAM) Moves beyond GO Annotations to Structured Descriptions of Biological Functions and Systems, <i>Nature Genetics</i>, <b>51(10)</b>, 1429-1433 (2019). <a href="http://dx.doi.org/10.1038/s41588-019-0500-1">doi</a>.</li>
+<li><a id="wangNewMethodMeasure2007">[wangNewMethodMeasure2007]</a> <a name="wangNewMethodMeasure2007"></a>Wang, Du, Payattakool, Yu & Chen, A New Method to Measure the Semantic Similarity of GO Terms, <i>Bioinformatics</i>, <b>23(10)</b>, 1274-1281 (2007). <a href="http://dx.doi.org/10.1093/bioinformatics/btm087">doi</a>.</li>
+</ul>
+</div>
+
+</section>
+</section>
+<section>
+<section id="slide-org3ba4773">
+<h2 id="org3ba4773">Questions?</h2>
+<aside class="notes">
+<ul>
+<li>One good example is all you need. For my work, two examples are what you need.</li>
+
+</ul>
+
+</aside>
+
+</section>
+<section id="slide-org6eaf07b">
+<h3 id="org6eaf07b">Evaluating mechanism schemas: virtues and vices</h3>
+<aside class="notes">
+<p>
+Get audience input. What makes a good mechanism? What makes a bad mechanism?
+</p>
+
+</aside>
+
+<div style="font-size:24px">
+<table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides" class="fragment appear">
+
+
+<colgroup>
+<col  class="org-left" />
+
+<col  class="org-left" />
+</colgroup>
+<thead>
+<tr>
+<th scope="col" class="org-left">Virtues</th>
+<th scope="col" class="org-left">Vices</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="org-left">Internal coherence</td>
+<td class="org-left">Superficiality</td>
+</tr>
+
+<tr>
+<td class="org-left">Testability</td>
+<td class="org-left">Incompleteness</td>
+</tr>
+
+<tr>
+<td class="org-left">Generates useful hypotheses</td>
+<td class="org-left">Incorrectness</td>
+</tr>
+
+<tr>
+<td class="org-left">Conservatism</td>
+<td class="org-left">&#xa0;</td>
+</tr>
+
+<tr>
+<td class="org-left">Simplicity</td>
+<td class="org-left">&#xa0;</td>
+</tr>
+
+<tr>
+<td class="org-left">Elegance</td>
+<td class="org-left">&#xa0;</td>
+</tr>
+
+<tr>
+<td class="org-left">Empirical adequacy</td>
+<td class="org-left">&#xa0;</td>
+</tr>
+
+<tr>
+<td class="org-left">Prediction</td>
+<td class="org-left">&#xa0;</td>
+</tr>
+
+<tr>
+<td class="org-left">Explanation</td>
+<td class="org-left">&#xa0;</td>
+</tr>
+
+<tr>
+<td class="org-left">External coherence</td>
+<td class="org-left">&#xa0;</td>
+</tr>
+
+<tr>
+<td class="org-left">Generality</td>
+<td class="org-left">&#xa0;</td>
+</tr>
+
+<tr>
+<td class="org-left">Unification</td>
+<td class="org-left">&#xa0;</td>
+</tr>
+</tbody>
+</table>
+</div>
+
+<p>
+<a class="org-ref-reference" href="#/slide-bibliography">[craverSearchMechanismsDiscoveries2014]</a>
+</p>
+
+</section>
+<section id="slide-orgbe97fe8">
+<h3 id="orgbe97fe8">Algorithm</h3>
+<div class="outline-text-3" id="text-orgbe97fe8">
+</div>
+</section>
+<section id="slide-org67c53e5">
+<h4 id="org67c53e5">Scoring a step for each specific mechanism</h4>
+<p>
+Is there an analogous step in this mechanism?
+</p>
+
+<ol>
+<li>Find proxy entities using semantic similarity &rarr; analogous entities</li>
+<li>Causal path distance between proxy entities &rarr; analogous activity or mechanism module</li>
+
+</ol>
+
+</section>
+<section id="slide-org588ea1a">
+<h4 id="org588ea1a">What are proxy entities?</h4>
+<p>
+Step: tamoxifen &rarr; testosterone
+</p>
+
+<p>
+What is an equivalent step between tamoxifen and testosterone in the prostate cancer mechanism?
+</p>
+
+<div style="width:50%;float:left">
+
+<div id="orgbc28af8" class="figure">
+<p><img src="images/prostate-cancer-mechanism-trans.png" alt="prostate-cancer-mechanism-trans.png" />
+</p>
+</div>
+</div>
+<div style="width:50%;float: left">
+
+<div id="org93bd5e1" class="figure">
+<p><img src="images/breast-cancer-mechanism-trans.png" alt="breast-cancer-mechanism-trans.png" />
+</p>
+</div>
+</div>
+
+<aside class="notes">
+<p>
+Warning: up next is a quite of bit of math which I am actually going to go over in detail because I need to show that it makes sense and that I understand how it works. For those of you who find it tedious, I'll give you this to think about. Assuming that what I've told you can get you from a set of concrete mechanisms to a general mechanism schema, what would convince you that it worked? Or that it was correct in some sense? Which of the virtues of mechanisms I gave earlier are most important to you? Logical coherence, generality, unification, testability, or hypothesis generation? Ok, here's some math.
+</p>
+
+</aside>
+
+</section>
+<section id="slide-orgd0e9f03">
+<h3 id="orgd0e9f03">Evaluation</h3>
+<div class="outline-text-3" id="text-orgd0e9f03">
+</div>
+</section>
+<section id="slide-org54887a2">
+<h4 id="org54887a2">Prediction evaluation using leave-one out link prediction</h4>
+<ul>
+<li>Input: GO-CAMs as concrete mechanisms</li>
+<li>Gold standard: Left out mechanism steps</li>
+<li>Success metric: F1-score</li>
+
+</ul>
+</section>
+<section id="slide-orga56c20c">
+<h4 id="orga56c20c">External coherence evaluation using hierarchical clustering</h4>
+<ul>
+<li>Input: REACTOME pathways as concrete mechanisms</li>
+<li>Gold standard: Gene Ontology Biological Process (GO-BP) hierarchy</li>
+<li>Success metric: Tree edit distance <a class="org-ref-reference" href="#/slide-bibliography">[pawlikRTEDRobustAlgorithm2011]</a></li>
+
+</ul>
+</section>
+<section id="slide-org6be7ae1">
+<h4 id="org6be7ae1">Unification vs superficiality evaluation optimizing coverage vs information loss</h4>
+<ul>
+<li>Input: GO-CAMs or REACTOME pathways</li>
+<li>Gold standard: None exists. Manual inspection</li>
+<li>Success metric: Comparison of coverage to information loss</li>
+
+</ul>
+
+</section>
+<section id="slide-org238e592">
+<h3 id="org238e592">What do we expect to see during mechanism schematization?</h3>
+<ul>
+<li>Abstraction of entities</li>
+<li>Modularization of activities</li>
+<li>Generalization of steps</li>
+
+</ul>
+
+</section>
+<section id="slide-org13e35e3">
+<h3 id="org13e35e3">Use of mechanism schemas</h3>
+<ul>
+<li>Indexing/retrieval</li>
+<li>Comparison</li>
+<li>Transformation</li>
+<li>Induction</li>
+
+</ul>
+
+</section>
+<section id="slide-org3bf8280">
+<h3 id="org3bf8280">Role of statistics</h3>
+<ul>
+<li>Simulate generality by compiling lots of specific examples and averaging over them</li>
+<li>Use knowledge to constrain statistical analysis</li>
+
+</ul>
+</section>
+</section>
+<section>
+<section id="slide-org3576cb8">
+<h2 id="org3576cb8">Quotes</h2>
+<blockquote>
+<p>
+Less is more.
+</p>
+</blockquote>
+
+<blockquote>
+<p>
+Mechanism schemata, as well as descriptions of particular mechanisms, play many of the roles attributed
+to theories.
+</p>
+</blockquote>
+<p>
+<a class="org-ref-reference" href="#/slide-bibliography">[machamerThinkingMechanisms2000]</a>
+</p>
+
+<blockquote>
+<p>
+The theories in the field of molecular biology can be viewed as sets of mechanism schemata.
+</p>
+</blockquote>
+<p>
+<a class="org-ref-reference" href="#/slide-bibliography">[machamerThinkingMechanisms2000]</a>
+</p>
+
+<blockquote>
+<p>
+To my mind, this defeats the purpose of analogy-making, which is perhaps the only “zero-shot learning” mechanism in human cognition — that is, you adapt the knowledge you have about one situation to a new situation.
+</p>
+</blockquote>
+<p>
+<a class="org-ref-reference" href="#/slide-bibliography">[mitchellCanGPT3Make2020]</a>
+</p>
+
+<blockquote>
+<p>
+To do anything requires energy. To specify what is done requires information.
+</p>
+</blockquote>
+<p>
+&#x2013; Seth Lloyd
+</p>
+
+<blockquote>
+<p>
+Improving power for analyzing rare diseases by transferring information from general contexts to the rare disease samples
+</p>
+</blockquote>
+<p>
+&#x2013; Casey Greene 02/04/2020 talk at CU Anschutz
+</p>
+</section>
+</section>
+</div>
+</div>
+<script src="./node_modules/reveal.js/dist/reveal.js"></script>
+<script src="./node_modules/reveal.js/plugin/markdown/markdown.js"></script>
+<script src="./node_modules/reveal.js/plugin/notes/notes.js"></script>
+<script src="./node_modules/reveal.js/plugin/search/search.js"></script>
+<script src="./node_modules/reveal.js/plugin/zoom/zoom.js"></script>
+<script>
+// Full list of configuration options available here:
+// https://github.com/hakimel/reveal.js#configuration
+Reveal.initialize({
+
+controls: true,
+progress: true,
+history: true,
+center: true,
+slideNumber: 'c',
+rollingLinks: false,
+keyboard: true,
+mouseWheel: false,
+fragmentInURL: false,
+hashOneBasedIndex: false,
+pdfSeparateFragments: true,
+
+overview: true,
+width: "100%",
+
+transition: 'convex',
+transitionSpeed: 'default',
+
+// Plugins with reveal.js 4.x
+plugins: [ RevealMarkdown, RevealNotes, RevealSearch, RevealZoom ],
+
+// Optional libraries used to extend reveal.js
+dependencies: [
+]
+
+});
+</script>
+</body>
+</html>

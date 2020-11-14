@@ -28,7 +28,17 @@
   - knowledge based reasoning
   - semantic ai
 
-#+latex: \pagebreak
+
+   #+LATEX: \pagebreak
+
+* Submission preference: poster
+
+* Keywords
+  - biological mechanisms
+  - analogy generalization
+  - knowledge based reasoning
+  - semantic ai
+
 * Abstract
 
   # I present a method for inferring formerly represented pathway abstractions from sets of concrete pathways using an algorithm called Least Subsuming Subgraph (LeSS). A pathway abstraction (PA) is a schema for a set of pathways where constituent entities or activities are either left out or left unspecified. A PA may depict a submodule or subgraph in common among its subsumed concrete pathways (SCPs). Several PAs can be organized hierarchically, such as in the Gene Ontology Biological Process (GO-BP) ontology, but formal representations of these pathways depicting the structure and organization of entities and activities do not. PAs allow for modularization of known pathways, such as those in Reactome. Abstraction and modularization can assist in the transfer of knowledge from well understood pathways to new and less well understood pathways. Concrete pathway representations are often incomplete, and finding a good PA can facilitate hypothesis generation by making clear which entities or relationships need to be added, removed, or specified. In addition, pathway enrichment methods may not be able to map data to available target pathways because they either do not take into account causal directionality or require precise mappings to specific entities or activities. PAs can capture the underlying mechanism and allow for abstract matching of constituents. This method is evaluated by inferring PAs from Reactome and reclassifying the SCPs. A good PA will have lost only so much information from its SCPs as to be able to subsume all of them. The success of optimizing the PA information loss will be reflected on the recall and precision of the classification. A good PA will achieve high recall by losing information, thus subsuming more pathways, while it will achieve high precision by retaining information, thus subsuming only those pathways which actually are SCPs.
@@ -70,6 +80,10 @@
    Formal representations of alignments across related biological mechanisms could achieve the same effect. A hypothesis and accompanying potential method for achieving such alignments is as follows.
 
    Domain specific causal knowledge of biological mechanisms, formally represented as subgraphs of a knowledge graph, are structurally aligned to produce formal representations of mechanism schema. The alignment of subject mechanisms begins by using both causal and non-causal knowledge to align and score all possible causal relationships among the mechanisms. Sufficiently high scoring relationship alignments are then used to construct the resulting mechanism schema. Entities and activities which are not shared among the mechanisms are resolved by identifying proxy nodes and their score is weighted by the semantic distances between the proxy and its target. Importantly, chains of causal relations are generalized during the alignment into what could be considered components or sub-mechanisms.
+
+   Initial results from this mechanism schematization strategy show that knowledge can be inferred across domain specific mechanisms. For example, the ability for the breast cancer drug tamoxifen to inhibit the growth of estrogen dependent breast cancer can be inferred by comparing a minimal subset of knowledge about breast cancer to knowledge about [[file:../../20200807201739-lhrh_agonist.org][LHRH agonist]]'s ability to inhibit the growth of testosterone dependent prostate cancer. Further evaluation will include hierarchical clustering of resulting mechanism schema constructed from REACTOME pathways to compare to the hierarchical characterization of biological processes found in the [[file:../../20200807202037-go_bp.org][Gene Ontology's Biological Process hierarchy]].
+
+   Analogy schematization has a number of potential applications from retrieval and identification, to comparison and transformation, and even for causal inference. For a field such as biology, scalable and systematic methods to schematize mechanisms could improve the transfer of knowledge and improve explanations critical to improving the treatments of complex diseases.
 
    Initial results from this mechanism schematization strategy show that knowledge can be inferred across domain specific mechanisms. For example, the ability for the breast cancer drug tamoxifen to inhibit the growth of estrogen dependent breast cancer can be inferred by comparing a minimal subset of knowledge about breast cancer to knowledge about LHRH agonist's ability to inhibit the growth of testosterone dependent prostate cancer. Further evaluation will include hierarchical clustering of resulting mechanism schema constructed from REACTOME pathways to compare to the hierarchical characterization of biological processes found in the Gene Ontology's Biological Process hierarchy.
 

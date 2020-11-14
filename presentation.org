@@ -1,0 +1,311 @@
+#+title: Automatic Schematization of Biological Mechanisms Via Alignment and Abstraction of Causal Relations Among Domain Specific Causal Pathways
+#+date: 11/14/2020
+#+OPTIONS: toc:nil num:nil reveal_progress:true reveal_history:true reveal_width:"100%"
+#+REVEAL_INIT_OPTIONS: slideNumber:false
+#+REVEAL_EXTRA_CSS: custom.css
+#+REVEAL_THEME: sky
+#+LATEX_HEADER: \usepackage[backend=biber,style=alphabetic]{biblatex}
+#+LATEX_HEADER: \addbibresource{My_Library.bib}
+#+REVEAL_ROOT: ./node_modules/reveal.js
+#+REVEAL_TITLE_SLIDE: <h2 class="title">%t</h2><p class="author">%a</p><p>University of Colorado Anschutz Medical Campus</p><p class="date">%d</p><aside class="notes">Hello. My name is Harrison Pielke-Lombardo and I want to start by saying thank you to the organizers for having me and thank you to the rest of you for listening to my talk. I study computatinal biology at the University of Colorado Anschutz Medical Campus with my advisor Larry Hunter. Our lab's focus is in finding ways to leverage biomedical knowledge using AI to help understand biological phenomena. My title for my talk is a little verbose so I'm going to switch to a little bit more concise title inspired by one of the talks we heard earlier today. </aside>
+
+* Inventing mechanism schema by refactoring biological pathways
+  Harrison Pielke-Lombardo
+
+  University of Colorado Anschutz Medical Campus
+
+  11/14/2020
+
+ #+BEGIN_NOTES
+ Today, I'm going to describe to you an analogy-inspired approach I am developing to help understand biological mechanisms.
+ #+END_NOTES
+
+* Biological analogies
+  #+REVEAL_HTML: <div style="width:50%;float:left">
+  file:images/DNA_unzipping.png
+
+
+  DNA replication \rarr zipper
+  #+REVEAL_HTML: </div>
+  #+REVEAL_HTML: <div style="width:50%;float: left">
+  file:images/lock-and-key-enzyme.jpg
+
+
+  Enzyme activity \rarr lock-and-key
+  #+REVEAL_HTML: </div>
+
+  #+BEGIN_NOTES
+  I want to start by emphasizing the importance of analogies in helping biologists understand many biological phenomena. DNA replication starts with unzipping of the nucleotide bonds. There is a lock-and-key model for enzyme activity. Importantly, these analogies have helped make key predictions such as that there must be an analog to the zipper in DNA unzipping which is the enzyme helicase.
+  #+END_NOTES
+
+
+* Biological Mechanisms
+
+  #+REVEAL_HTML: <div style="width:50%;float:left">
+  #+attr_html: :width 450px
+  file:images/darden.jpg
+  #+REVEAL_HTML: </div>
+  #+REVEAL_HTML: <div style="width:50%;float: left">
+  #+begin_quote
+  Mechanisms are entities and activities organized such that they are productive of regular changes from start or set-up conditions to finish or termination conditions.
+  #+end_quote
+  #+REVEAL_HTML: </div>
+
+ #+BEGIN_NOTES
+ I use a definition of mechanism from Lindley Darden and Carl Craver's book  In Search of Mechanisms.
+
+ This book is a great place to start for those interested in this kind of application of analogy to the study of biology.
+ #+END_NOTES
+
+
+* What is a mechanism schema?
+
+
+  #+REVEAL_HTML: <div style="width:50%;float:left">
+  #+attr_html: :width 450px
+  [[file:images/darden-mechanism-schema-example.png]]
+  #+REVEAL_HTML: </div>
+  #+REVEAL_HTML: <div style="width:50%;float: left">
+  #+begin_quote
+  A mechanism schema is a truncated abstract description of a mechanism
+  that can be filled with more specific descriptions of component entities and
+  activities.
+  #+end_quote
+  cite:dardenStrategiesDiscoveringMechanisms2002
+  #+REVEAL_HTML: </div>
+
+
+
+#+BEGIN_NOTES
+However, what I am really interested in is the abstraction of mechanisms, which I'll refer to as mechanism schema. These allow for the transfer of causal knowledge across domains and many other uses. You can see here one of the key schemas used by biologists to explain how information contained in DNA is realized as functional proteins, referred to as the central dogma.
+#+END_NOTES
+
+* How does biological mechanism schematization relate to computational analogy?
+
+  - Tasks
+    - Retrieval
+    - Mapping
+    - *_Abstraction/generalization_*
+    - Rerepresentation
+
+     #+BEGIN_NOTES
+     If these are the tasks of computational analogy, then I think building mechanism schemas would lie in the abstraction or generalization task.
+     #+END_NOTES
+
+
+* Mechanism Schematization of Cancer: Breast vs Prostate
+
+  #+REVEAL_HTML: <div style="width:33%;float:left">
+  [[file:images/prostate-cancer-mechanism-trans.png]]
+
+  Prostate Cancer
+  #+REVEAL_HTML: </div>
+  #+REVEAL_HTML: <div style="width:33%;float: left">
+  [[file:images/breast-cancer-mechanism-trans.png]]
+
+  Breast Cancer
+  #+REVEAL_HTML: </div>
+  #+REVEAL_HTML: <div style="width:33%;float: left">
+  [[file:images/general-cancer-mechanism-trans.png]]
+
+  Hormone-driven Cancer Schema
+  #+REVEAL_HTML: </div>
+
+ #+BEGIN_NOTES
+ So what does mechanism schematization look like? Well, take two hormone-driven cancers: breast cancer and prostate cancer treatment mechanisms shown here in extremely simplified form. We can generalize over these to produce the schema on the right. Note that this was historically an important analogy for the discovery of the drug tamoxifen, the first targeted cancer therapy. By understanding prostate cancer treatment, researchers were able to explain the mechanism of action for tamoxifen. While this was a massively influential discovery, it took more than 30 years to realize. We would like to make these kinds of connections computationally.
+ #+END_NOTES
+
+
+* Goal
+  Develop and evaluate an automatic mechanism schematization method using existing biomedical ontologies, databases, and knowledge-bases and use the schema to hypothesize new relationships and disease mechanisms.
+
+  /Hypothesis/: Analogical alignment of concrete mechanisms will produce predictive and externally coherent mechanism schema.
+
+ #+BEGIN_NOTES
+ Get here by 4:00
+ #+END_NOTES
+
+
+** Starting materials
+   - Input
+     - Causal knowledge \rarr concrete mechanism graphs (REACTOME/GO-CAMs/MecCog) cite:fabregatReactomePathwayKnowledgebase2018,thomasGeneOntologyCausal2019,dardenHarnessingFormalConcepts2018
+     - Other knowledge \rarr knowledge graph (KaBOB) cite:livingstonKaBOBOntologybasedSemantic2015
+   - Output
+     - Mechanism schema
+   - Optimization
+     - Maximize coverage of concrete mechanisms while minimizing information loss
+     - Minimum common subgraph
+
+** Algorithm overview
+
+   Given a set of concrete mechanisms and a knowledge graph, find a mechanism schema.
+
+   Step = causal relationship between two entities.
+
+   1. Consider every possible step between two entities in the set of concrete mechanisms.
+   2. Score each possible step.
+   3. Assemble high scoring steps into the mechanism schema.
+
+
+** Final step score equation
+
+   \begin{equation}
+
+   S_{GO}(A,B) = \frac
+   {\sum_{t \in T_A \cap T_B} (S_A(t) + S_B(t))}
+   {SV(A) + SV(B)}
+
+   \end{equation}
+   cite:wangNewMethodMeasure2007
+
+   $$ C(a, b, m) = len(shortestpath(a, b, m)) $$
+
+   $$ P(a, b, M) = \frac{1}{|M|} \sum_{m \in M} S_{GO}(a, a_m) S_{GO}(b, b_m) k^{-C(a_m, b_m, m)} $$
+   #+BEGIN_NOTES
+   Finally, we come to the equation which encompasses everything we discussed. As you can see, it takes the average of the relationship score over all specific mechanisms. The relationship score penalizes semantically dissimilar proxy entities and causally distant entities. Note that the causal distance calculation is between the proxy entities that we find. The scores for all possible relationships are calculated and high scoring relationships are assembled into the final mechanism abstraction.
+   #+END_NOTES
+
+
+
+** Future directions
+   - Case study: oncogenesis via developmental pathways
+   - Explore hyper-parameters:
+     - score threshold
+     - proxy-entity inclusion threshold
+     - causal path distance weight
+     - semantic similarity weights
+
+
+* Acknowledgments
+  :PROPERTIES:
+  :CREATED:  [2020-10-24 Sat 04:27]
+  :CUSTOM_ID: bibliography
+  :END:
+  - Advisor: Larry Hunter
+  - Colorado Biomedical Informatics Training Program grant T15 LM009451
+
+  #+REVEAL_HTML: <div style="font-size:16px">
+  printbibliography:My_Library.bib
+  #+REVEAL_HTML: </div>
+
+* Questions?
+  #+BEGIN_NOTES
+  - One good example is all you need. For my work, two examples are what you need.
+  #+END_NOTES
+
+** Evaluating mechanism schemas: virtues and vices
+   #+BEGIN_NOTES
+   Get audience input. What makes a good mechanism? What makes a bad mechanism?
+   #+END_NOTES
+
+   #+REVEAL_HTML: <div style="font-size:24px">
+   #+ATTR_REVEAL: :frag appear
+   | Virtues                     | Vices          |
+   |-----------------------------+----------------|
+   | Internal coherence          | Superficiality |
+   | Testability                 | Incompleteness |
+   | Generates useful hypotheses | Incorrectness  |
+   | Conservatism                |                |
+   | Simplicity                  |                |
+   | Elegance                    |                |
+   | Empirical adequacy          |                |
+   | Prediction                  |                |
+   | Explanation                 |                |
+   | External coherence          |                |
+   | Generality                  |                |
+   | Unification                 |                |
+   #+REVEAL_HTML: </div>
+
+   cite:craverSearchMechanismsDiscoveries2014
+
+** Algorithm
+*** Scoring a step for each specific mechanism
+
+    Is there an analogous step in this mechanism?
+
+    1. Find proxy entities using semantic similarity \rarr analogous entities
+    2. Causal path distance between proxy entities \rarr analogous activity or mechanism module
+
+*** What are proxy entities?
+    Step: tamoxifen \rarr testosterone
+
+    What is an equivalent step between tamoxifen and testosterone in the prostate cancer mechanism?
+
+    #+REVEAL_HTML: <div style="width:50%;float:left">
+    [[file:images/prostate-cancer-mechanism-trans.png]]
+    #+REVEAL_HTML: </div>
+    #+REVEAL_HTML: <div style="width:50%;float: left">
+    [[file:images/breast-cancer-mechanism-trans.png]]
+    #+REVEAL_HTML: </div>
+
+    #+BEGIN_NOTES
+    Warning: up next is a quite of bit of math which I am actually going to go over in detail because I need to show that it makes sense and that I understand how it works. For those of you who find it tedious, I'll give you this to think about. Assuming that what I've told you can get you from a set of concrete mechanisms to a general mechanism schema, what would convince you that it worked? Or that it was correct in some sense? Which of the virtues of mechanisms I gave earlier are most important to you? Logical coherence, generality, unification, testability, or hypothesis generation? Ok, here's some math.
+    #+END_NOTES
+
+** Evaluation
+*** Prediction evaluation using leave-one out link prediction
+    - Input: GO-CAMs as concrete mechanisms
+    - Gold standard: Left out mechanism steps
+    - Success metric: F1-score
+*** External coherence evaluation using hierarchical clustering
+    - Input: REACTOME pathways as concrete mechanisms
+    - Gold standard: Gene Ontology Biological Process (GO-BP) hierarchy
+    - Success metric: Tree edit distance cite:pawlikRTEDRobustAlgorithm2011
+*** Unification vs superficiality evaluation optimizing coverage vs information loss
+    - Input: GO-CAMs or REACTOME pathways
+    - Gold standard: None exists. Manual inspection
+    - Success metric: Comparison of coverage to information loss
+
+** What do we expect to see during mechanism schematization?
+   - Abstraction of entities
+   - Modularization of activities
+   - Generalization of steps
+
+   # TODO Put after aims if time
+   # * Why mechanism schemas are important
+   # ** Constrain search for mechanisms: instantiation, black-box filling, modularization
+   #    - Entities
+   #    - Activities
+   #    - Organization
+
+   # ** Transfer of knowledge
+
+** Use of mechanism schemas
+   - Indexing/retrieval
+   - Comparison
+   - Transformation
+   - Induction
+
+** Role of statistics
+   - Simulate generality by compiling lots of specific examples and averaging over them
+   - Use knowledge to constrain statistical analysis
+* Quotes
+  #+begin_quote
+  Less is more.
+  #+end_quote
+
+  #+begin_quote
+  Mechanism schemata, as well as descriptions of particular mechanisms, play many of the roles attributed
+  to theories.
+  #+end_quote
+  cite:machamerThinkingMechanisms2000
+
+  #+begin_quote
+  The theories in the field of molecular biology can be viewed as sets of mechanism schemata.
+  #+end_quote
+  cite:machamerThinkingMechanisms2000
+
+  #+begin_quote
+  To my mind, this defeats the purpose of analogy-making, which is perhaps the only “zero-shot learning” mechanism in human cognition — that is, you adapt the knowledge you have about one situation to a new situation.
+  #+end_quote
+  cite:mitchellCanGPT3Make2020
+
+  #+begin_quote
+  To do anything requires energy. To specify what is done requires information.
+  #+end_quote
+  -- Seth Lloyd
+
+  #+begin_quote
+  Improving power for analyzing rare diseases by transferring information from general contexts to the rare disease samples
+  #+end_quote
+  -- Casey Greene 02/04/2020 talk at CU Anschutz
