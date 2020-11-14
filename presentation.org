@@ -113,6 +113,11 @@ However, what I am really interested in is the abstraction of mechanisms, which 
 
   /Hypothesis/: Analogical alignment of concrete mechanisms will produce predictive and externally coherent mechanism schema.
 
+ #+BEGIN_NOTES
+ Get here by 4:00
+ #+END_NOTES
+
+
 ** Starting materials
    - Input
      - Causal knowledge \rarr concrete mechanism graphs (REACTOME/GO-CAMs/MecCog) cite:fabregatReactomePathwayKnowledgebase2018,thomasGeneOntologyCausal2019,dardenHarnessingFormalConcepts2018
