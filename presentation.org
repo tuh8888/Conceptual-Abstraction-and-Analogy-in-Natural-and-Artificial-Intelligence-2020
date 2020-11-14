@@ -7,7 +7,7 @@
 #+LATEX_HEADER: \usepackage[backend=biber,style=alphabetic]{biblatex}
 #+LATEX_HEADER: \addbibresource{My_Library.bib}
 #+REVEAL_ROOT: ./node_modules/reveal.js
-#+REVEAL_TITLE_SLIDE: <h2 class="title">%t</h2><p class="author">%a</p><p>University of Colorado Anschutz Medical Campus</p><p class="date">%d</p><aside class="notes">Hello. My name is Harrison Pielke-Lombardo and I want to start by saying thank you for staying for my talk. I study computatinal biology at the University of Colorado Anschutz Medical Campus with my advisor Larry Hunter. Our lab's focus is in finding ways to leverage biomedical knowledge using AI to help understand biological phenomena. My title for my talk is a little verbose so I'm going to switch to a little bit more concise title inspired by one of the talks we heard earlier today. </aside>
+#+REVEAL_TITLE_SLIDE: <h2 class="title">%t</h2><p class="author">%a</p><p>University of Colorado Anschutz Medical Campus</p><p class="date">%d</p><aside class="notes">Hello. My name is Harrison Pielke-Lombardo and I want to start by saying thank you to the organizers for having me and thank you to the rest of you for listening to my talk. I study computatinal biology at the University of Colorado Anschutz Medical Campus with my advisor Larry Hunter. Our lab's focus is in finding ways to leverage biomedical knowledge using AI to help understand biological phenomena. My title for my talk is a little verbose so I'm going to switch to a little bit more concise title inspired by one of the talks we heard earlier today. </aside>
 
 * Inventing mechanism schema by refactoring biological pathways
   Harrison Pielke-Lombardo
@@ -112,7 +112,7 @@ However, what I am really interested in is the abstraction of mechanisms, which 
   #+REVEAL_HTML: </div>
 
  #+BEGIN_NOTES
- So what does mechanism schematization look like? Well, take two hormone-driven cancers: breast cancer and prostate cancer treatment mechanisms shown here in extremely simplified form. We can generalize over these to produce the schema on the right. Note that this was historically an important analogy for the discovery of the drug tamoxifen, the first targeted cancer therapy. By understanding prostate cancer treatment, researchers were able to explain the mechanism of action for tamoxifen.
+ So what does mechanism schematization look like? Well, take two hormone-driven cancers: breast cancer and prostate cancer treatment mechanisms shown here in extremely simplified form. We can generalize over these to produce the schema on the right. Note that this was historically an important analogy for the discovery of the drug tamoxifen, the first targeted cancer therapy. By understanding prostate cancer treatment, researchers were able to explain the mechanism of action for tamoxifen. While this was a massively influential discovery, it took more than 30 years to realize. We would like to make these kinds of connections computationally.
  #+END_NOTES
 
 
