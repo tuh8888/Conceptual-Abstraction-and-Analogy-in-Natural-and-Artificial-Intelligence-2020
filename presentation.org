@@ -93,7 +93,7 @@ However, what I am really interested in is the abstraction of mechanisms, which 
      #+END_NOTES
 
 
-* Mechanism Schematization: Breast Cancer vs Prostate Cancer
+* Mechanism Schematization of Cancer: Breast vs Prostate
 
   #+REVEAL_HTML: <div style="width:33%;float:left">
   [[file:images/prostate-cancer-mechanism-trans.png]]
