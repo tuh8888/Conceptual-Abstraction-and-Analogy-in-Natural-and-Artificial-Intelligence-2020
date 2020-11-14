@@ -18,12 +18,12 @@
 <div class="reveal">
 <div class="slides">
 <section id="sec-title-slide">
-<h2 class="title">Automatic Schematization of Biological Mechanisms Via Alignment and Abstraction of Causal Relations Among Domain Specific Causal Pathways</h2><p class="author">Harrison Pielke-Lombardo</p><p>University of Colorado Anschutz Medical Campus</p><p class="date">11/14/2020</p><aside class="notes">Hello. My name is Harrison Pielke-Lombardo and I want to start by saying thank you for coming this morning. Today, I'll be presenting my plan for completing my thesis work and the work I've already accomplished towards achieving that goal. Supervising me on this work is my advisor Larry Hunter as well as my thesis committee which is composed of Laura Saba, Jim Costello, Manuel Lladser, and Robin Dowell. Please, if you could hold your questions until the end. I'll try to leave time for them. Unless you're on my committee in which case please stop me if I've lost you. Afterward, there'll be time for the public to ask me questions and then you guys will leave for the private questioning session with just my committee. With that let's get started. My title for this work is "Automatic Schematization of Biological Mechanisms Via Alignment and Abstraction of Causal Relations Among Domain Specific Causal Pathways". Let's break that down. In this program, there is an emphasis on creating new computational methods to solve biological problems. So I will be presenting a few novel methods. Their goal will be schematizing biological mechanisms. I'll get to what I mean by mechanism in detail later. Schematization is the process of generalizing something. In this case, generalizing biological mechanisms. Scalable means that the methods will work on the kind of large, information-rich data and knowledge we find in biological problems. Systematic means these methods aren't just one-offs but part of a coherent set of tools. So this work is a set of computational tools for solving large, complex biological problems by generalizing the biological mechanisms we know about. Ok, so hopefully that gives you a basic overview. Next, to motivate this work, I'd like to tell you a story.</aside>
+<h2 class="title">Automatic Schematization of Biological Mechanisms Via Alignment and Abstraction of Causal Relations Among Domain Specific Causal Pathways</h2><p class="author">Harrison Pielke-Lombardo</p><p>University of Colorado Anschutz Medical Campus</p><p class="date">11/14/2020</p><aside class="notes">Hello. My name is Harrison Pielke-Lombardo and I want to start by saying thank you for staying for my talk. I study computatinal biology at the University of Colorado Anschutz Medical Campus with my advisor Larry Hunter. Our lab's focus is in finding ways to leverage biomedical knowledge using AI to help understand biological phenomena. My title for my talk is a little verbose so I'm going to switch to a little bit more concise title inspired by one of the talks we heard earlier today. </aside>
 </section>
 
 <section>
-<section id="slide-org51d3e04">
-<h2 id="org51d3e04">Inventing mechanism schema by refactoring biological pathways</h2>
+<section id="slide-orgb963c6f">
+<h2 id="orgb963c6f">Inventing mechanism schema by refactoring biological pathways</h2>
 <p>
 Harrison Pielke-Lombardo
 </p>
@@ -36,11 +36,19 @@ University of Colorado Anschutz Medical Campus
 11/14/2020
 </p>
 
+<aside class="notes">
+<p>
+Today, I'm going to describe to you an analogy-inspired approach I am developing to help understand biological mechanisms.
+</p>
+
+</aside>
+
+
 </section>
 </section>
 <section>
-<section id="slide-org28e800c">
-<h2 id="org28e800c">Biological analogies</h2>
+<section id="slide-org4befe55">
+<h2 id="org4befe55">Biological analogies</h2>
 <ul>
 <li>DNA replication &rarr; zipper</li>
 <li>Enzyme activity &rarr; lock-and-key</li>
@@ -48,30 +56,37 @@ University of Colorado Anschutz Medical Campus
 
 </ul>
 
-
 <div style="width:50%;float:left">
 
-<div id="orgbab892c" class="figure">
+<div id="orgc0aa116" class="figure">
 <p><img src="images/DNA_unzipping.png" alt="DNA_unzipping.png" />
 </p>
 </div>
 </div>
 <div style="width:50%;float: left">
 
-<div id="org541cd62" class="figure">
+<div id="org7d86537" class="figure">
 <p><img src="images/lock-and-key-enzyme.jpg" alt="lock-and-key-enzyme.jpg" />
 </p>
 </div>
 </div>
 
+<aside class="notes">
+<p>
+I want to start by emphasizing the importance of analogies in helping biologists understand many biological phenomena. DNA replication starts with unzipping of the nucleotide bonds. There is a lock-and-key model for enzyme activity. And hormone driven tumor growth is an abstraction of observed instances of breast and prostate cancers. I'll discuss this more later. Importantly, these analogies have helped make predictions such as that there must be an analog to the zipper in DNA unzipping which is the enzyme helicase.
+</p>
+
+</aside>
+
+
 </section>
 </section>
 <section>
-<section id="slide-orgb44b53a">
-<h2 id="orgb44b53a">Biological Mechanisms</h2>
+<section id="slide-orgea08ad7">
+<h2 id="orgea08ad7">Biological Mechanisms</h2>
 <div style="width:50%;float:left">
 
-<div id="org95f4384" class="figure">
+<div id="org5a1bcdd" class="figure">
 <p><img src="images/darden.jpg" alt="darden.jpg" width="450px" />
 </p>
 </div>
@@ -82,16 +97,25 @@ University of Colorado Anschutz Medical Campus
 Mechanisms are entities and activities organized such that they are productive of regular changes from start or set-up conditions to finish or termination conditions.
 </p>
 </blockquote>
-<p>
-<a class="org-ref-reference" href="#/slide-bibliography">[machamerThinkingMechanisms2000]</a>
-</p>
 </div>
+
+<aside class="notes">
+<p>
+I use a definition of mechanism from Lindley Darden and Carl Craver's book  In Search of Mechanisms.
+</p>
+
+<p>
+This book is a great place to start for those interested in this kind of application of analogy to the study of biology.
+</p>
+
+</aside>
+
 
 </section>
 </section>
 <section>
-<section id="slide-orgcdc7be7">
-<h2 id="orgcdc7be7">What is a mechanism schema?</h2>
+<section id="slide-orgb22ca00">
+<h2 id="orgb22ca00">What is a mechanism schema?</h2>
 <blockquote>
 <p>
 A mechanism schema is a truncated abstract description of a mechanism
@@ -104,36 +128,54 @@ activities.
 </p>
 
 
-<div id="orgc4867eb" class="figure">
+<div id="org00ecb7e" class="figure">
 <p><img src="images/darden-mechanism-schema-example.png" alt="darden-mechanism-schema-example.png" />
 </p>
 </div>
 
+
+<aside class="notes">
+<p>
+However, what I am really interested in is the abstraction of mechanisms, which I'll refer to as mechanism schema. These allow for the transfer of causal knowledge across domains and many other uses. You can see here one of the key schemas used by biologists to explain how information contained in DNA is realized as functional proteins, referred to as the central dogma.
+</p>
+
+</aside>
+
 </section>
 </section>
 <section>
-<section id="slide-org92f2f95">
-<h2 id="org92f2f95">How does biological mechanism schematization relate to computational analogy?</h2>
+<section id="slide-org6750afd">
+<h2 id="org6750afd">How does biological mechanism schematization relate to computational analogy?</h2>
 <ul>
 <li>Tasks
 <ul>
 <li>Retrieval</li>
 <li>Mapping</li>
 <li><b><span class="underline">Abstraction/generalization</span></b></li>
-<li>Rerepresentation</li>
+<li><p>
+Rerepresentation
+</p>
+
+<aside class="notes">
+<p>
+If these are the tasks of computational analogy, then I think building mechanism schemas would lie in the abstraction or generalization task.
+</p>
+
+</aside></li>
 
 </ul></li>
 
 </ul>
 
+
 </section>
 </section>
 <section>
-<section id="slide-org7fdc123">
-<h2 id="org7fdc123">Mechanism Schematization: Breast Cancer vs Prostate Cancer</h2>
+<section id="slide-org0d91712">
+<h2 id="org0d91712">Mechanism Schematization: Breast Cancer vs Prostate Cancer</h2>
 <div style="width:33%;float:left">
 
-<div id="org4a3b903" class="figure">
+<div id="orgadb97ab" class="figure">
 <p><img src="images/prostate-cancer-mechanism-trans.png" alt="prostate-cancer-mechanism-trans.png" />
 </p>
 </div>
@@ -144,7 +186,7 @@ Prostate Cancer
 </div>
 <div style="width:33%;float: left">
 
-<div id="orge9c69c8" class="figure">
+<div id="org7995f34" class="figure">
 <p><img src="images/breast-cancer-mechanism-trans.png" alt="breast-cancer-mechanism-trans.png" />
 </p>
 </div>
@@ -155,21 +197,29 @@ Breast Cancer
 </div>
 <div style="width:33%;float: left">
 
-<div id="org1bbb366" class="figure">
+<div id="org05aa05f" class="figure">
 <p><img src="images/general-cancer-mechanism-trans.png" alt="general-cancer-mechanism-trans.png" />
 </p>
 </div>
 
 <p>
-General Hormone-driven Cancer
+Hormone-driven Cancer Schema
 </p>
 </div>
+
+<aside class="notes">
+<p>
+So what does mechanism schematization look like? Well, take two hormone-driven cancers: breast cancer and prostate cancer treatment mechanisms shown here in extremely simplified form. We can generalize over these to produce the schema on the right. Note that this was historically an important analogy for the discovery of the drug tamoxifen, the first targeted cancer therapy. By understanding prostate cancer treatment, researchers were able to explain the mechanism of action for tamoxifen.
+</p>
+
+</aside>
+
 
 </section>
 </section>
 <section>
-<section id="slide-org73d8253">
-<h2 id="org73d8253">Goal</h2>
+<section id="slide-org06badda">
+<h2 id="org06badda">Goal</h2>
 <p>
 Develop and evaluate an automatic mechanism schematization method using existing biomedical ontologies, databases, and knowledge-bases and use the schema to hypothesize new relationships and disease mechanisms.
 </p>
@@ -179,8 +229,8 @@ Develop and evaluate an automatic mechanism schematization method using existing
 </p>
 
 </section>
-<section id="slide-orga50e468">
-<h3 id="orga50e468">Starting materials</h3>
+<section id="slide-orgfe5fd9c">
+<h3 id="orgfe5fd9c">Starting materials</h3>
 <ul>
 <li>Input
 <ul>
@@ -203,8 +253,8 @@ Develop and evaluate an automatic mechanism schematization method using existing
 </ul>
 
 </section>
-<section id="slide-org169e39a">
-<h3 id="org169e39a">Algorithm overview</h3>
+<section id="slide-orgf384dfb">
+<h3 id="orgf384dfb">Algorithm overview</h3>
 <p>
 Given a set of concrete mechanisms and a knowledge graph, find a mechanism schema.
 </p>
@@ -222,8 +272,8 @@ Step = causal relationship between two entities.
 
 
 </section>
-<section id="slide-orge778396">
-<h3 id="orge778396">Final step score equation</h3>
+<section id="slide-orgc54ddb6">
+<h3 id="orgc54ddb6">Final step score equation</h3>
 <div>
 \begin{equation}
 
@@ -255,8 +305,8 @@ Finally, we come to the equation which encompasses everything we discussed. As y
 
 
 </section>
-<section id="slide-org1901c45">
-<h3 id="org1901c45">Future directions</h3>
+<section id="slide-org4b92a74">
+<h3 id="org4b92a74">Future directions</h3>
 <ul>
 <li>Case study: oncogenesis via developmental pathways</li>
 <li>Explore hyper-parameters:
@@ -309,8 +359,8 @@ Finally, we come to the equation which encompasses everything we discussed. As y
 </section>
 </section>
 <section>
-<section id="slide-orge8d1ce8">
-<h2 id="orge8d1ce8">Questions?</h2>
+<section id="slide-orgea8a1a5">
+<h2 id="orgea8a1a5">Questions?</h2>
 <aside class="notes">
 <ul>
 <li>One good example is all you need. For my work, two examples are what you need.</li>
@@ -320,8 +370,8 @@ Finally, we come to the equation which encompasses everything we discussed. As y
 </aside>
 
 </section>
-<section id="slide-orge4dde41">
-<h3 id="orge4dde41">Evaluating mechanism schemas: virtues and vices</h3>
+<section id="slide-orgc1fd372">
+<h3 id="orgc1fd372">Evaluating mechanism schemas: virtues and vices</h3>
 <aside class="notes">
 <p>
 Get audience input. What makes a good mechanism? What makes a bad mechanism?
@@ -413,13 +463,13 @@ Get audience input. What makes a good mechanism? What makes a bad mechanism?
 </p>
 
 </section>
-<section id="slide-orgb167346">
-<h3 id="orgb167346">Algorithm</h3>
-<div class="outline-text-3" id="text-orgb167346">
+<section id="slide-org0045e4e">
+<h3 id="org0045e4e">Algorithm</h3>
+<div class="outline-text-3" id="text-org0045e4e">
 </div>
 </section>
-<section id="slide-orge35cae1">
-<h4 id="orge35cae1">Scoring a step for each specific mechanism</h4>
+<section id="slide-org303284f">
+<h4 id="org303284f">Scoring a step for each specific mechanism</h4>
 <p>
 Is there an analogous step in this mechanism?
 </p>
@@ -431,8 +481,8 @@ Is there an analogous step in this mechanism?
 </ol>
 
 </section>
-<section id="slide-org616882b">
-<h4 id="org616882b">What are proxy entities?</h4>
+<section id="slide-org0a52b4b">
+<h4 id="org0a52b4b">What are proxy entities?</h4>
 <p>
 Step: tamoxifen &rarr; testosterone
 </p>
@@ -443,14 +493,14 @@ What is an equivalent step between tamoxifen and testosterone in the prostate ca
 
 <div style="width:50%;float:left">
 
-<div id="orgbab49ec" class="figure">
+<div id="org9144df5" class="figure">
 <p><img src="images/prostate-cancer-mechanism-trans.png" alt="prostate-cancer-mechanism-trans.png" />
 </p>
 </div>
 </div>
 <div style="width:50%;float: left">
 
-<div id="org2611205" class="figure">
+<div id="org40b0914" class="figure">
 <p><img src="images/breast-cancer-mechanism-trans.png" alt="breast-cancer-mechanism-trans.png" />
 </p>
 </div>
@@ -464,13 +514,13 @@ Warning: up next is a quite of bit of math which I am actually going to go over 
 </aside>
 
 </section>
-<section id="slide-orgaf046bd">
-<h3 id="orgaf046bd">Evaluation</h3>
-<div class="outline-text-3" id="text-orgaf046bd">
+<section id="slide-org6f18533">
+<h3 id="org6f18533">Evaluation</h3>
+<div class="outline-text-3" id="text-org6f18533">
 </div>
 </section>
-<section id="slide-orgdf711af">
-<h4 id="orgdf711af">Prediction evaluation using leave-one out link prediction</h4>
+<section id="slide-orged09191">
+<h4 id="orged09191">Prediction evaluation using leave-one out link prediction</h4>
 <ul>
 <li>Input: GO-CAMs as concrete mechanisms</li>
 <li>Gold standard: Left out mechanism steps</li>
@@ -478,8 +528,8 @@ Warning: up next is a quite of bit of math which I am actually going to go over 
 
 </ul>
 </section>
-<section id="slide-orgab7c0af">
-<h4 id="orgab7c0af">External coherence evaluation using hierarchical clustering</h4>
+<section id="slide-org4c7f63c">
+<h4 id="org4c7f63c">External coherence evaluation using hierarchical clustering</h4>
 <ul>
 <li>Input: REACTOME pathways as concrete mechanisms</li>
 <li>Gold standard: Gene Ontology Biological Process (GO-BP) hierarchy</li>
@@ -487,8 +537,8 @@ Warning: up next is a quite of bit of math which I am actually going to go over 
 
 </ul>
 </section>
-<section id="slide-org1941e3e">
-<h4 id="org1941e3e">Unification vs superficiality evaluation optimizing coverage vs information loss</h4>
+<section id="slide-orgc392cac">
+<h4 id="orgc392cac">Unification vs superficiality evaluation optimizing coverage vs information loss</h4>
 <ul>
 <li>Input: GO-CAMs or REACTOME pathways</li>
 <li>Gold standard: None exists. Manual inspection</li>
@@ -497,8 +547,8 @@ Warning: up next is a quite of bit of math which I am actually going to go over 
 </ul>
 
 </section>
-<section id="slide-org8a5b469">
-<h3 id="org8a5b469">What do we expect to see during mechanism schematization?</h3>
+<section id="slide-org3297a65">
+<h3 id="org3297a65">What do we expect to see during mechanism schematization?</h3>
 <ul>
 <li>Abstraction of entities</li>
 <li>Modularization of activities</li>
@@ -507,8 +557,8 @@ Warning: up next is a quite of bit of math which I am actually going to go over 
 </ul>
 
 </section>
-<section id="slide-org8726667">
-<h3 id="org8726667">Use of mechanism schemas</h3>
+<section id="slide-org64921f4">
+<h3 id="org64921f4">Use of mechanism schemas</h3>
 <ul>
 <li>Indexing/retrieval</li>
 <li>Comparison</li>
@@ -518,8 +568,8 @@ Warning: up next is a quite of bit of math which I am actually going to go over 
 </ul>
 
 </section>
-<section id="slide-org18699df">
-<h3 id="org18699df">Role of statistics</h3>
+<section id="slide-org9bdcad8">
+<h3 id="org9bdcad8">Role of statistics</h3>
 <ul>
 <li>Simulate generality by compiling lots of specific examples and averaging over them</li>
 <li>Use knowledge to constrain statistical analysis</li>
@@ -528,8 +578,8 @@ Warning: up next is a quite of bit of math which I am actually going to go over 
 </section>
 </section>
 <section>
-<section id="slide-org3a722d5">
-<h2 id="org3a722d5">Quotes</h2>
+<section id="slide-org719633b">
+<h2 id="org719633b">Quotes</h2>
 <blockquote>
 <p>
 Less is more.

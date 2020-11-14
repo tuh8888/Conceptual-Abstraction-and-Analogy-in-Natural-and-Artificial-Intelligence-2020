@@ -7,7 +7,7 @@
 #+LATEX_HEADER: \usepackage[backend=biber,style=alphabetic]{biblatex}
 #+LATEX_HEADER: \addbibresource{My_Library.bib}
 #+REVEAL_ROOT: ./node_modules/reveal.js
-#+REVEAL_TITLE_SLIDE: <h2 class="title">%t</h2><p class="author">%a</p><p>University of Colorado Anschutz Medical Campus</p><p class="date">%d</p><aside class="notes">Hello. My name is Harrison Pielke-Lombardo and I want to start by saying thank you for coming this morning. Today, I'll be presenting my plan for completing my thesis work and the work I've already accomplished towards achieving that goal. Supervising me on this work is my advisor Larry Hunter as well as my thesis committee which is composed of Laura Saba, Jim Costello, Manuel Lladser, and Robin Dowell. Please, if you could hold your questions until the end. I'll try to leave time for them. Unless you're on my committee in which case please stop me if I've lost you. Afterward, there'll be time for the public to ask me questions and then you guys will leave for the private questioning session with just my committee. With that let's get started. My title for this work is "%t". Let's break that down. In this program, there is an emphasis on creating new computational methods to solve biological problems. So I will be presenting a few novel methods. Their goal will be schematizing biological mechanisms. I'll get to what I mean by mechanism in detail later. Schematization is the process of generalizing something. In this case, generalizing biological mechanisms. Scalable means that the methods will work on the kind of large, information-rich data and knowledge we find in biological problems. Systematic means these methods aren't just one-offs but part of a coherent set of tools. So this work is a set of computational tools for solving large, complex biological problems by generalizing the biological mechanisms we know about. Ok, so hopefully that gives you a basic overview. Next, to motivate this work, I'd like to tell you a story.</aside>
+#+REVEAL_TITLE_SLIDE: <h2 class="title">%t</h2><p class="author">%a</p><p>University of Colorado Anschutz Medical Campus</p><p class="date">%d</p><aside class="notes">Hello. My name is Harrison Pielke-Lombardo and I want to start by saying thank you for staying for my talk. I study computatinal biology at the University of Colorado Anschutz Medical Campus with my advisor Larry Hunter. Our lab's focus is in finding ways to leverage biomedical knowledge using AI to help understand biological phenomena. My title for my talk is a little verbose so I'm going to switch to a little bit more concise title inspired by one of the talks we heard earlier today. </aside>
 
 * Inventing mechanism schema by refactoring biological pathways
   Harrison Pielke-Lombardo
@@ -16,11 +16,15 @@
 
   11/14/2020
 
+ #+BEGIN_NOTES
+ Today, I'm going to describe to you an analogy-inspired approach I am developing to help understand biological mechanisms.
+ #+END_NOTES
+
+
 * Biological analogies
   - DNA replication \rarr zipper
   - Enzyme activity \rarr lock-and-key
   - Inhibition of tumor growth \rarr hormone driven cancer (breast vs prostate cancer)
-
 
   #+REVEAL_HTML: <div style="width:50%;float:left">
   file:images/DNA_unzipping.png
@@ -30,12 +34,11 @@
   #+REVEAL_HTML: </div>
 
   #+BEGIN_NOTES
-  I want to start by emphasizing the importance of analogies in helping biologists understand many biological phenomena.
+  I want to start by emphasizing the importance of analogies in helping biologists understand many biological phenomena. DNA replication starts with unzipping of the nucleotide bonds. There is a lock-and-key model for enzyme activity. And hormone driven tumor growth is an abstraction of observed instances of breast and prostate cancers. I'll discuss this more later. Importantly, these analogies have helped make predictions such as that there must be an analog to the zipper in DNA unzipping which is the enzyme helicase.
   #+END_NOTES
 
 
 * Biological Mechanisms
-
 
   #+REVEAL_HTML: <div style="width:50%;float:left">
   #+attr_html: :width 450px
@@ -45,8 +48,14 @@
   #+begin_quote
   Mechanisms are entities and activities organized such that they are productive of regular changes from start or set-up conditions to finish or termination conditions.
   #+end_quote
-  cite:machamerThinkingMechanisms2000
   #+REVEAL_HTML: </div>
+
+ #+BEGIN_NOTES
+ I use a definition of mechanism from Lindley Darden and Carl Craver's book  In Search of Mechanisms.
+
+ This book is a great place to start for those interested in this kind of application of analogy to the study of biology.
+ #+END_NOTES
+
 
 * What is a mechanism schema?
   #+begin_quote
@@ -58,6 +67,11 @@
 
   [[file:images/darden-mechanism-schema-example.png]]
 
+
+#+BEGIN_NOTES
+However, what I am really interested in is the abstraction of mechanisms, which I'll refer to as mechanism schema. These allow for the transfer of causal knowledge across domains and many other uses. You can see here one of the key schemas used by biologists to explain how information contained in DNA is realized as functional proteins, referred to as the central dogma.
+#+END_NOTES
+
 * How does biological mechanism schematization relate to computational analogy?
 
   - Tasks
@@ -65,6 +79,11 @@
     - Mapping
     - *_Abstraction/generalization_*
     - Rerepresentation
+
+     #+BEGIN_NOTES
+     If these are the tasks of computational analogy, then I think building mechanism schemas would lie in the abstraction or generalization task.
+     #+END_NOTES
+
 
 * Mechanism Schematization: Breast Cancer vs Prostate Cancer
 
@@ -81,8 +100,13 @@
   #+REVEAL_HTML: <div style="width:33%;float: left">
   [[file:images/general-cancer-mechanism-trans.png]]
 
-  General Hormone-driven Cancer
+  Hormone-driven Cancer Schema
   #+REVEAL_HTML: </div>
+
+ #+BEGIN_NOTES
+ So what does mechanism schematization look like? Well, take two hormone-driven cancers: breast cancer and prostate cancer treatment mechanisms shown here in extremely simplified form. We can generalize over these to produce the schema on the right. Note that this was historically an important analogy for the discovery of the drug tamoxifen, the first targeted cancer therapy. By understanding prostate cancer treatment, researchers were able to explain the mechanism of action for tamoxifen.
+ #+END_NOTES
+
 
 * Goal
   Develop and evaluate an automatic mechanism schematization method using existing biomedical ontologies, databases, and knowledge-bases and use the schema to hypothesize new relationships and disease mechanisms.
