@@ -20,21 +20,22 @@
  Today, I'm going to describe to you an analogy-inspired approach I am developing to help understand biological mechanisms.
  #+END_NOTES
 
-
 * Biological analogies
-  - DNA replication \rarr zipper
-  - Enzyme activity \rarr lock-and-key
-  - Inhibition of tumor growth \rarr hormone driven cancer (breast vs prostate cancer)
-
   #+REVEAL_HTML: <div style="width:50%;float:left">
   file:images/DNA_unzipping.png
+
+
+  DNA replication \rarr zipper
   #+REVEAL_HTML: </div>
   #+REVEAL_HTML: <div style="width:50%;float: left">
   file:images/lock-and-key-enzyme.jpg
+
+
+  Enzyme activity \rarr lock-and-key
   #+REVEAL_HTML: </div>
 
   #+BEGIN_NOTES
-  I want to start by emphasizing the importance of analogies in helping biologists understand many biological phenomena. DNA replication starts with unzipping of the nucleotide bonds. There is a lock-and-key model for enzyme activity. And hormone driven tumor growth is an abstraction of observed instances of breast and prostate cancers. I'll discuss this more later. Importantly, these analogies have helped make predictions such as that there must be an analog to the zipper in DNA unzipping which is the enzyme helicase.
+  I want to start by emphasizing the importance of analogies in helping biologists understand many biological phenomena. DNA replication starts with unzipping of the nucleotide bonds. There is a lock-and-key model for enzyme activity. Importantly, these analogies have helped make key predictions such as that there must be an analog to the zipper in DNA unzipping which is the enzyme helicase.
   #+END_NOTES
 
 
@@ -58,14 +59,21 @@
 
 
 * What is a mechanism schema?
+
+
+  #+REVEAL_HTML: <div style="width:50%;float:left">
+  #+attr_html: :width 450px
+  [[file:images/darden-mechanism-schema-example.png]]
+  #+REVEAL_HTML: </div>
+  #+REVEAL_HTML: <div style="width:50%;float: left">
   #+begin_quote
   A mechanism schema is a truncated abstract description of a mechanism
   that can be filled with more specific descriptions of component entities and
   activities.
   #+end_quote
   cite:dardenStrategiesDiscoveringMechanisms2002
+  #+REVEAL_HTML: </div>
 
-  [[file:images/darden-mechanism-schema-example.png]]
 
 
 #+BEGIN_NOTES
