@@ -1,5 +1,4 @@
-#+title: Scalable and systematic computational schematization of biological mechanisms
-#+subtitle: Comprehensive Exam: Thesis Proposal
+#+title: Automatic Schematization of Biological Mechanisms Via Alignment and Abstraction of Causal Relations Among Domain Specific Causal Pathways
 #+date: 10/29/2020
 #+OPTIONS: toc:nil num:nil reveal_progress:true reveal_history:true reveal_width:"100%"
 #+REVEAL_INIT_OPTIONS: slideNumber:false
@@ -8,113 +7,123 @@
 #+LATEX_HEADER: \usepackage[backend=biber,style=alphabetic]{biblatex}
 #+LATEX_HEADER: \addbibresource{My_Library.bib}
 #+REVEAL_ROOT: ./node_modules/reveal.js
-#+REVEAL_TITLE_SLIDE: <h2 class="title">%t</h2><p class="subtitle">%s</p><p class="author">%a</p><p class="date">%d</p><aside class="notes">Hello. My name is Harrison Pielke-Lombardo and I want to start by saying thank you for coming this morning. Today, I'll be presenting my plan for completing my thesis work and the work I've already accomplished towards achieving that goal. Supervising me on this work is my advisor Larry Hunter as well as my thesis committee which is composed of Laura Saba, Jim Costello, Manuel Lladser, and Robin Dowell. Please, if you could hold your questions until the end. I'll try to leave time for them. Unless you're on my committee in which case please stop me if I've lost you. Afterward, there'll be time for the public to ask me questions and then you guys will leave for the private questioning session with just my committee. With that let's get started. My title for this work is "%t". Let's break that down. In this program, there is an emphasis on creating new computational methods to solve biological problems. So I will be presenting a few novel methods. Their goal will be schematizing biological mechanisms. I'll get to what I mean by mechanism in detail later. Schematization is the process of generalizing something. In this case, generalizing biological mechanisms. Scalable means that the methods will work on the kind of large, information-rich data and knowledge we find in biological problems. Systematic means these methods aren't just one-offs but part of a coherent set of tools. So this work is a set of computational tools for solving large, complex biological problems by generalizing the biological mechanisms we know about. Ok, so hopefully that gives you a basic overview. Next, to motivate this work, I'd like to tell you a story.</aside>
-
-* Targeted therapy for breast cancer: A Tale of Two Tissues
-
-  #+BEGIN_NOTES
-  Imagine that it is 1970 and you are a researcher searching for a cure for breast cancer.
-  #+END_NOTES
-
-  # ** Breast cancer stats (U.S.)
-  #    - 68,000 new cases of breast cancer cite:silverbergCancerStatistics19701970
-  #    - 32,650 deaths due to breast cancer cite:silverbergCancerStatistics19731973
-
-  #    #+BEGIN_NOTES
-  #    There are 68k new cases of breast cancer in 1970 alone, and 32k deaths due to breast cancer. This is a lethal disease which is destroying the lives of thousands of women and their families. Yet at this point, despite millions of dollars in research spending over decades, we know very little about it and the potential treatments are brutal and have dismal chance of curing without recurrence.
-  #    #+END_NOTES
-
-  # ** What was known about breast cancer
-  #    - Genetic disease
-  #    - Tumors are derived from normal tissue
-  #    - Risk increases with age
-  #    - Delayed childbirth increases risk
-  #    - Breast tissue development is modulated by estrogen
-
-  #    #+BEGIN_NOTES
-  #    This is a bit about what we did know.
-  #    #+END_NOTES
-
-  # ** State of breast cancer treatment
-  #    - Surgery
-  #    - Radiation therapy
-  #    - Chemotherapy
-  #    #+BEGIN_NOTES
-  #    The treatments were brutal but are still commonly used today. In 1970, there was a lot of hope that
-  #    #+END_NOTES
-
-** Prostate cancer analogy
-   :PROPERTIES:
-   :CREATED:  [2020-10-24 Sat 04:24]
-   :END:
-
-   #+REVEAL_HTML: <div style="width:50%;float:left">
-   [[file:images/prostate-cancer-mechanism-no-tamoxifen-trans.png]]
-   #+REVEAL_HTML: </div>
-   #+REVEAL_HTML: <div style="width:50%;float: left">
-   [[file:images/breast-cancer-mechanism-no-tamoxifen-trans.png]]
-   #+REVEAL_HTML: </div>
+#+REVEAL_TITLE_SLIDE: <h2 class="title">%t</h2><p class="author">%a, University of Colorado Anschutz Medical Campus</p><p class="date">%d</p><aside class="notes">Hello. My name is Harrison Pielke-Lombardo and I want to start by saying thank you for coming this morning. Today, I'll be presenting my plan for completing my thesis work and the work I've already accomplished towards achieving that goal. Supervising me on this work is my advisor Larry Hunter as well as my thesis committee which is composed of Laura Saba, Jim Costello, Manuel Lladser, and Robin Dowell. Please, if you could hold your questions until the end. I'll try to leave time for them. Unless you're on my committee in which case please stop me if I've lost you. Afterward, there'll be time for the public to ask me questions and then you guys will leave for the private questioning session with just my committee. With that let's get started. My title for this work is "%t". Let's break that down. In this program, there is an emphasis on creating new computational methods to solve biological problems. So I will be presenting a few novel methods. Their goal will be schematizing biological mechanisms. I'll get to what I mean by mechanism in detail later. Schematization is the process of generalizing something. In this case, generalizing biological mechanisms. Scalable means that the methods will work on the kind of large, information-rich data and knowledge we find in biological problems. Systematic means these methods aren't just one-offs but part of a coherent set of tools. So this work is a set of computational tools for solving large, complex biological problems by generalizing the biological mechanisms we know about. Ok, so hopefully that gives you a basic overview. Next, to motivate this work, I'd like to tell you a story.</aside>
 
 
-** Discovery of tamoxifen
-   :PROPERTIES:
-   :reveal_background: /home/harrisonpl/Documents/my-papers/comprehensive_exam/images/tamoxifen-development-paper.png
-   :END:
+* Biological analogies
+  - DNA replication
+  - Protein synthesis
+  - Enzyme activity
+  - Oxydative phosphorylation
+  - Inhibition of tumor growth
 
-** Analogy between prostate and breast cancer
-   # TODO make edges black
+* Biological Mechanisms
 
-   #+REVEAL_HTML: <div style="width:33%;float:left">
-   [[file:images/prostate-cancer-mechanism-trans.png]]
-   #+REVEAL_HTML: </div>
-   #+REVEAL_HTML: <div style="width:33%;float: left">
-   [[file:images/breast-cancer-mechanism-trans.png]]
-   #+REVEAL_HTML: </div>
-   #+REVEAL_HTML: <div style="width:33%;float: left">
-   [[file:images/general-cancer-mechanism-trans.png]]
-   #+REVEAL_HTML: </div>
+  #+begin_quote
+  Mechanisms are entities and activities organized such that they are productive of regular changes from start or set-up conditions to finish or termination conditions.
+  #+end_quote
+  cite:machamerThinkingMechanisms2000
 
-* Computational Analogy
+* What is a mechanism schema?
+  #+begin_quote
+  A mechanism schema is a truncated abstract description of a mechanism
+  that can be filled with more specific descriptions of component entities and
+  activities.
+  #+end_quote
+  cite:dardenStrategiesDiscoveringMechanisms2002
+
+  [[file:images/darden-mechanism-schema-example.png]]
+
+* How does biological mechanism schematization relate to computational analogy?
+
+  - Tasks
+     - Retrieval
+     - Mapping
+     - Abstraction/generalization
+     - Rerepresentation
+
+* Mechanism Schematization: Breast Cancer vs Prostate Cancer
+
+  #+REVEAL_HTML: <div style="width:33%;float:left">
+  [[file:images/prostate-cancer-mechanism-trans.png]]
+  #+REVEAL_HTML: </div>
+  #+REVEAL_HTML: <div style="width:33%;float: left">
+  [[file:images/breast-cancer-mechanism-trans.png]]
+  #+REVEAL_HTML: </div>
+  #+REVEAL_HTML: <div style="width:33%;float: left">
+  [[file:images/general-cancer-mechanism-trans.png]]
+  #+REVEAL_HTML: </div>
+
+* Goal
+  Develop and evaluate an automatic mechanism schematization method using existing biomedical ontologies, databases, and knowledge-bases and use the schema to hypothesize new relationships and disease mechanisms.
+
+  /Hypothesis/: Analogical alignment of concrete mechanisms will produce predictive and externally coherent mechanism schema.
+
+** Starting materials
+   - Input
+     - Causal knowledge \rarr concrete mechanism graphs (REACTOME/GO-CAMs/MecCog) cite:fabregatReactomePathwayKnowledgebase2018,thomasGeneOntologyCausal2019,dardenHarnessingFormalConcepts2018
+     - Other knowledge \rarr knowledge graph (KaBOB) cite:livingstonKaBOBOntologybasedSemantic2015
+   - Output
+     - Mechanism schema
+   - Optimization
+     - Maximize coverage of concrete mechanisms while minimizing information loss
+     - Minimum common subgraph
+
+** Algorithm overview
+
+   Given a set of concrete mechanisms and a knowledge graph, find a mechanism schema.
+
+   Step = causal relationship between two entities.
+
+   1. Consider every possible step between two entities in the set of concrete mechanisms.
+   2. Score each possible step.
+   3. Assemble high scoring steps into the mechanism schema.
+
+
+** Final step score equation
+
+   \begin{equation}
+
+   S_{GO}(A,B) = \frac
+   {\sum_{t \in T_A \cap T_B} (S_A(t) + S_B(t))}
+   {SV(A) + SV(B)}
+
+   \end{equation}
+   cite:wangNewMethodMeasure2007
+
+   $$ C(a, b, m) = len(shortestpath(a, b, m)) $$
+
+   $$ P(a, b, M) = \frac{1}{|M|} \sum_{m \in M} S_{GO}(a, a_m) S_{GO}(b, b_m) k^{-C(a_m, b_m, m)} $$
+   #+BEGIN_NOTES
+   Finally, we come to the equation which encompasses everything we discussed. As you can see, it takes the average of the relationship score over all specific mechanisms. The relationship score penalizes semantically dissimilar proxy entities and causally distant entities. Note that the causal distance calculation is between the proxy entities that we find. The scores for all possible relationships are calculated and high scoring relationships are assembled into the final mechanism abstraction.
+   #+END_NOTES
+
+
+
+** Future directions
+   - Case study: oncogenesis via developmental pathways
+   - Explore hyper-parameters:
+     - score threshold
+     - proxy-entity inclusion threshold
+     - causal path distance weight
+     - semantic similarity weights
+
+
+* Bibliography
   :PROPERTIES:
-  :CREATED:  [2020-10-24 Sat 04:25]
+  :CREATED:  [2020-10-24 Sat 04:27]
+  :CUSTOM_ID: bibliography
   :END:
+  printbibliography:My_Library.bib
 
-** Definition
-   #+begin_quote
-   The comparison or alignment of two structured representations.
-   #+end_quote
-   cite:gentnerComputationalModelsAnalogy2011
+* Acknowledgments
+  - Advisor: Larry Hunter
+  - Colorado Biomedical Informatics Training Program grant T15 LM009451
 
-** Tasks
-   - Retrieval
-   - Mapping
-   - Abstraction/generalization
-   - Rerepresentation
-
-** Computational methods
-   - Retrieval: Copycat/Metacat cite:hofstadterdouglasr.CopycatProjectModel2016
-   - Mapping: Structure Mapping Engine (SME) cite:falkenhainer1986StructureMappingEngine
-   - Abstraction: SEQL cite:kuehneSEQLCategoryLearning2000
-
-* Mechanisms
-  How scientists explain "why?"
-
-** What is a mechanism?
-
-   #+begin_quote
-   Mechanisms are entities and activities organized such that they are productive of regular changes from start or set-up conditions to finish or termination conditions.
-   #+end_quote
-   cite:machamerThinkingMechanisms2000
-
-** What is a mechanism schema?
-   #+begin_quote
-   A mechanism schema is a truncated abstract description of a mechanism
-   that can be filled with more specific descriptions of component entities and
-   activities.
-   #+end_quote
-   cite:dardenStrategiesDiscoveringMechanisms2002
-
-   [[file:images/darden-mechanism-schema-example.png]]
+* Questions?
+  #+BEGIN_NOTES
+  - One good example is all you need. For my work, two examples are what you need.
+  #+END_NOTES
 
 ** Evaluating mechanism schemas: virtues and vices
    #+BEGIN_NOTES
@@ -141,199 +150,63 @@
 
    cite:craverSearchMechanismsDiscoveries2014
 
-** Use of mechanism schemas
-   - Indexing/retrieval
-   - Comparison
-   - Transformation
-   - Induction
+** Algorithm
+*** Scoring a step for each specific mechanism
+
+    Is there an analogous step in this mechanism?
+
+    1. Find proxy entities using semantic similarity \rarr analogous entities
+    2. Causal path distance between proxy entities \rarr analogous activity or mechanism module
+
+*** What are proxy entities?
+    Step: tamoxifen \rarr testosterone
+
+    What is an equivalent step between tamoxifen and testosterone in the prostate cancer mechanism?
+
+    #+REVEAL_HTML: <div style="width:50%;float:left">
+    [[file:images/prostate-cancer-mechanism-trans.png]]
+    #+REVEAL_HTML: </div>
+    #+REVEAL_HTML: <div style="width:50%;float: left">
+    [[file:images/breast-cancer-mechanism-trans.png]]
+    #+REVEAL_HTML: </div>
+
+    #+BEGIN_NOTES
+    Warning: up next is a quite of bit of math which I am actually going to go over in detail because I need to show that it makes sense and that I understand how it works. For those of you who find it tedious, I'll give you this to think about. Assuming that what I've told you can get you from a set of concrete mechanisms to a general mechanism schema, what would convince you that it worked? Or that it was correct in some sense? Which of the virtues of mechanisms I gave earlier are most important to you? Logical coherence, generality, unification, testability, or hypothesis generation? Ok, here's some math.
+    #+END_NOTES
+
+** Evaluation
+*** Prediction evaluation using leave-one out link prediction
+    - Input: GO-CAMs as concrete mechanisms
+    - Gold standard: Left out mechanism steps
+    - Success metric: F1-score
+*** External coherence evaluation using hierarchical clustering
+    - Input: REACTOME pathways as concrete mechanisms
+    - Gold standard: Gene Ontology Biological Process (GO-BP) hierarchy
+    - Success metric: Tree edit distance cite:pawlikRTEDRobustAlgorithm2011
+*** Unification vs superficiality evaluation optimizing coverage vs information loss
+    - Input: GO-CAMs or REACTOME pathways
+    - Gold standard: None exists. Manual inspection
+    - Success metric: Comparison of coverage to information loss
 
 ** What do we expect to see during mechanism schematization?
    - Abstraction of entities
    - Modularization of activities
    - Generalization of steps
-** Examples
-   - DNA replication
-   - Protein synthesis
-   - Enzyme activity
-   - Oxydative phosphorylation
-   - Inhibition of tumor growth
 
-   # TODO Put after aims if time
-   # * Why mechanism schemas are important
-   # ** Constrain search for mechanisms: instantiation, black-box filling, modularization
-   #    - Entities
-   #    - Activities
-   #    - Organization
+  # TODO Put after aims if time
+  # * Why mechanism schemas are important
+  # ** Constrain search for mechanisms: instantiation, black-box filling, modularization
+  #    - Entities
+  #    - Activities
+  #    - Organization
 
-   # ** Transfer of knowledge
+  # ** Transfer of knowledge
 
-
-* Aim 1
-  Develop and evaluate an automatic mechanism schematization method using existing biomedical ontologies, databases, and knowledge-bases and use the schema to hypothesize new relationships and disease mechanisms.
-
-  /Hypothesis/: Analogical alignment of concrete mechanisms will produce predictive and externally coherent mechanism schema.
-
-** Approach
-   - Algorithm
-   - Implementation
-   - Evaluation
-   - Preliminary results
-
-** Starting materials
-   - Causal knowledge \rarr concrete mechanism graphs
-   - Other knowledge \rarr knowledge graph
-
-** Goal
-   - Concrete mechanisms \rarr schematization \rarr mechanism schema
-   - Optimization: maximize coverage of concrete mechanisms while minimizing information loss
-
-** Algorithm overview
-
-   Given a set of concrete mechanisms and a knowledge graph, find a mechanism schema.
-
-   Step = causal relationship between two entities.
-
-   1. Consider every possible step between two entities in the set of concrete mechanisms.
-   2. Score each possible step.
-   3. Assemble high scoring steps into the mechanism schema.
-
-** Scoring a step for each specific mechanism
-
-   Is there an analogous step in this mechanism?
-
-   1. Find proxy entities using semantic similarity \rarr analogous entities
-   2. Causal path distance between proxy entities \rarr analogous activity or mechanism module
-
-** What are proxy entities?
-   Step: tamoxifen \rarr testosterone
-
-   What is an equivalent step between tamoxifen and testosterone in the prostate cancer mechanism?
-
-   #+REVEAL_HTML: <div style="width:50%;float:left">
-   [[file:images/prostate-cancer-mechanism-trans.png]]
-   #+REVEAL_HTML: </div>
-   #+REVEAL_HTML: <div style="width:50%;float: left">
-   [[file:images/breast-cancer-mechanism-trans.png]]
-   #+REVEAL_HTML: </div>
-
-   #+BEGIN_NOTES
-   Warning: up next is a quite of bit of math which I am actually going to go over in detail because I need to show that it makes sense and that I understand how it works. For those of you who find it tedious, I'll give you this to think about. Assuming that what I've told you can get you from a set of concrete mechanisms to a general mechanism schema, what would convince you that it worked? Or that it was correct in some sense? Which of the virtues of mechanisms I gave earlier are most important to you? Logical coherence, generality, unification, testability, or hypothesis generation? Ok, here's some math.
-   #+END_NOTES
-** Semantic Similarity cite:wangNewMethodMeasure2007
-
-   \begin{equation}
-
-   S_A(t) = \begin{cases}
-   1 \mbox{ if } t = A \\
-   \max{\{w_e \star S_A(t^\prime) | t^\prime \in childrenof(t)\}} \mbox{ if } t \neq A
-   \end{cases}
-
-   \end{equation}
-
-   \begin{equation}
-
-   SV(A) = \sum_{t \in T_A} S_A(t)
-
-   \end{equation}
-
-   \begin{equation}
-
-   S_{GO}(A,B) = \frac
-   {\sum_{t \in T_A \cap T_B} (S_A(t) + S_B(t))}
-   {SV(A) + SV(B)}
-
-   \end{equation}
-
-   #+BEGIN_NOTES
-   I have to move quick but here's the math behind calculating the semantic similarity. It's taken from the method in this paper by Wang et al for calculating semantic similarity between GO terms.
-   #+END_NOTES
-
-
-** Causal path distance
-
-   $$ C(a, b, m) = len(shortestpath(a, b, m)) $$
-
-   #+BEGIN_NOTES
-   The causal distance is really the meat of this method. The idea is that we walk along causal edges in our mechanism graph to determine if an entity is causally related to another. The assumption is that closer entities are more likely to be causally related, generally.
-   #+END_NOTES
-
-
-** Final step score equation
-
-   $$ P(a, b, M) = \frac{1}{|M|} \sum_{m \in M} S_{GO}(a, a_m) S_{GO}(b, b_m) k^{-C(a_m, b_m, m)} $$
-   #+BEGIN_NOTES
-   Finally, we come to the equation which encompasses everything we discussed. As you can see, it takes the average of the relationship score over all specific mechanisms. The relationship score penalizes semantically dissimilar proxy entities and causally distant entities. Note that the causal distance calculation is between the proxy entities that we find. The scores for all possible relationships are calculated and high scoring relationships are assembled into the final mechanism abstraction.
-   #+END_NOTES
-
-** Constructing the mechanism schema
-   1. Calculate step scores $P(a, b, M)$ for all $a$ and $b$ in $E_m$ for all $m$ in $M$.
-   2. If $P(a, b, M) \geq \theta$, add the step to the mechanism schema.
-
-** Actual implementation
-   - Causal knowledge \rarr REACTOME/GO-CAMs/MecCog cite:fabregatReactomePathwayKnowledgebase2018,thomasGeneOntologyCausal2019,dardenHarnessingFormalConcepts2018
-   - Other knowledge \rarr KaBOB cite:livingstonKaBOBOntologybasedSemantic2015
-
-** Prediction evaluation using leave-one out link prediction
-   - Input: GO-CAMs as concrete mechanisms
-   - Gold standard: Left out mechanism steps
-   - Success metric: F1-score
-** External coherence evaluation using hierarchical clustering
-   - Input: REACTOME pathways as concrete mechanisms
-   - Gold standard: Gene Ontology Biological Process (GO-BP) hierarchy
-   - Success metric: Tree edit distance cite:pawlikRTEDRobustAlgorithm2011
-** Unification vs superficiality evaluation optimizing coverage vs information loss
-   - Input: GO-CAMs or REACTOME pathways
-   - Gold standard: None exists. Manual inspection
-   - Success metric: Comparison of coverage to information loss
-** Preliminary results
-   #+REVEAL_HTML: <div style="width:33%;float:left">
-   [[file:images/prostate-cancer-mechanism-trans.png]]
-   #+REVEAL_HTML: </div>
-   #+REVEAL_HTML: <div style="width:33%;float: left">
-   [[file:images/breast-cancer-mechanism-trans.png]]
-   #+REVEAL_HTML: </div>
-   #+REVEAL_HTML: <div style="width:33%;float: left">
-   [[file:images/general-cancer-mechanism-trans.png]]
-   #+REVEAL_HTML: </div>
-** Future directions
-   - Case study: oncogenesis via developmental pathways
-   - Explore hyper-parameters:
-     - score threshold
-     - proxy-entity inclusion threshold
-     - causal path distance weight
-     - semantic similarity weights
-
-* Overview
-  [[file:images/thesis-outline.png]]
-* Future directions
-
-** Connection between oncogenesis and developmental pathways
-
-** Logical coherence of mechanisms
-
-** Using extracted relations from the literature to inform mechanism schematization
-
-** Using mechanism schema to inform relation extraction
-
-* Bibliography
-  :PROPERTIES:
-  :CREATED:  [2020-10-24 Sat 04:27]
-  :CUSTOM_ID: bibliography
-  :END:
-  printbibliography:My_Library.bib
-
-* Acknowledgments
-  - Advisor: Larry Hunter
-  - Committee: James Costello, Laura Saba, Manuel Lladser, and Robin Dowell
-  - Laura Stevens
-  - Hunter lab: Mike Bada, Bill Baumgartner, Elizabeth White (alumni)
-  - Computational Bioscience Program
-  - Colorado Biomedical Informatics Training Program grant T15 LM009451
-
-* Questions?
-  #+BEGIN_NOTES
-  - One good example is all you need. For my work, two examples are what you need.
-  #+END_NOTES
+** Use of mechanism schemas
+   - Indexing/retrieval
+   - Comparison
+   - Transformation
+   - Induction
 
 ** Role of statistics
    - Simulate generality by compiling lots of specific examples and averaging over them
