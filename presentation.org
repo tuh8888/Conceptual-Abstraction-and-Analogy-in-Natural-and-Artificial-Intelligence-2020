@@ -23,15 +23,15 @@
 
 
   #+REVEAL_HTML: <div style="width:50%;float:left">
-    file:images/DNA_unzipping.png
+  file:images/DNA_unzipping.png
   #+REVEAL_HTML: </div>
   #+REVEAL_HTML: <div style="width:50%;float: left">
-    file:images/lock-and-key-enzyme.jpg
+  file:images/lock-and-key-enzyme.jpg
   #+REVEAL_HTML: </div>
 
- #+BEGIN_NOTES
- I want to start by emphasizing the importance of analogies in helping biologists understand many biological phenomena.
- #+END_NOTES
+  #+BEGIN_NOTES
+  I want to start by emphasizing the importance of analogies in helping biologists understand many biological phenomena.
+  #+END_NOTES
 
 
 * Biological Mechanisms
@@ -39,7 +39,7 @@
 
   #+REVEAL_HTML: <div style="width:50%;float:left">
   #+attr_html: :width 450px
-    file:images/darden.jpg
+  file:images/darden.jpg
   #+REVEAL_HTML: </div>
   #+REVEAL_HTML: <div style="width:50%;float: left">
   #+begin_quote
@@ -61,10 +61,10 @@
 * How does biological mechanism schematization relate to computational analogy?
 
   - Tasks
-     - Retrieval
-     - Mapping
-     - *_Abstraction/generalization_*
-     - Rerepresentation
+    - Retrieval
+    - Mapping
+    - *_Abstraction/generalization_*
+    - Rerepresentation
 
 * Mechanism Schematization: Breast Cancer vs Prostate Cancer
 
@@ -224,14 +224,14 @@
    - Modularization of activities
    - Generalization of steps
 
-  # TODO Put after aims if time
-  # * Why mechanism schemas are important
-  # ** Constrain search for mechanisms: instantiation, black-box filling, modularization
-  #    - Entities
-  #    - Activities
-  #    - Organization
+   # TODO Put after aims if time
+   # * Why mechanism schemas are important
+   # ** Constrain search for mechanisms: instantiation, black-box filling, modularization
+   #    - Entities
+   #    - Activities
+   #    - Organization
 
-  # ** Transfer of knowledge
+   # ** Transfer of knowledge
 
 ** Use of mechanism schemas
    - Indexing/retrieval
