@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
 <meta charset="utf-8"/>
-<title>Scalable and systematic computational schematization of biological mechanisms</title>
+<title>Automatic Schematization of Biological Mechanisms Via Alignment and Abstraction of Causal Relations Among Domain Specific Causal Pathways</title>
 <meta name="author" content="Harrison Pielke-Lombardo"/>
 <style type="text/css">
 .underline { text-decoration: underline; }
@@ -18,63 +18,48 @@
 <div class="reveal">
 <div class="slides">
 <section id="sec-title-slide">
-<h2 class="title">Scalable and systematic computational schematization of biological mechanisms</h2><p class="subtitle">Comprehensive Exam: Thesis Proposal</p><p class="author">Harrison Pielke-Lombardo</p><p class="date">10/29/2020</p><aside class="notes">Hello. My name is Harrison Pielke-Lombardo and I want to start by saying thank you for coming this morning. Today, I'll be presenting my plan for completing my thesis work and the work I've already accomplished towards achieving that goal. Supervising me on this work is my advisor Larry Hunter as well as my thesis committee which is composed of Laura Saba, Jim Costello, Manuel Lladser, and Robin Dowell. Please, if you could hold your questions until the end. I'll try to leave time for them. Unless you're on my committee in which case please stop me if I've lost you. Afterward, there'll be time for the public to ask me questions and then you guys will leave for the private questioning session with just my committee. With that let's get started. My title for this work is "Scalable and systematic computational schematization of biological mechanisms". Let's break that down. In this program, there is an emphasis on creating new computational methods to solve biological problems. So I will be presenting a few novel methods. Their goal will be schematizing biological mechanisms. I'll get to what I mean by mechanism in detail later. Schematization is the process of generalizing something. In this case, generalizing biological mechanisms. Scalable means that the methods will work on the kind of large, information-rich data and knowledge we find in biological problems. Systematic means these methods aren't just one-offs but part of a coherent set of tools. So this work is a set of computational tools for solving large, complex biological problems by generalizing the biological mechanisms we know about. Ok, so hopefully that gives you a basic overview. Next, to motivate this work, I'd like to tell you a story.</aside>
+<h2 class="title">Automatic Schematization of Biological Mechanisms Via Alignment and Abstraction of Causal Relations Among Domain Specific Causal Pathways</h2><p class="author">Harrison Pielke-Lombardo</p><p>University of Colorado Anschutz Medical Campus</p><p class="date">11/14/2020</p><aside class="notes">Hello. My name is Harrison Pielke-Lombardo and I want to start by saying thank you for coming this morning. Today, I'll be presenting my plan for completing my thesis work and the work I've already accomplished towards achieving that goal. Supervising me on this work is my advisor Larry Hunter as well as my thesis committee which is composed of Laura Saba, Jim Costello, Manuel Lladser, and Robin Dowell. Please, if you could hold your questions until the end. I'll try to leave time for them. Unless you're on my committee in which case please stop me if I've lost you. Afterward, there'll be time for the public to ask me questions and then you guys will leave for the private questioning session with just my committee. With that let's get started. My title for this work is "Automatic Schematization of Biological Mechanisms Via Alignment and Abstraction of Causal Relations Among Domain Specific Causal Pathways". Let's break that down. In this program, there is an emphasis on creating new computational methods to solve biological problems. So I will be presenting a few novel methods. Their goal will be schematizing biological mechanisms. I'll get to what I mean by mechanism in detail later. Schematization is the process of generalizing something. In this case, generalizing biological mechanisms. Scalable means that the methods will work on the kind of large, information-rich data and knowledge we find in biological problems. Systematic means these methods aren't just one-offs but part of a coherent set of tools. So this work is a set of computational tools for solving large, complex biological problems by generalizing the biological mechanisms we know about. Ok, so hopefully that gives you a basic overview. Next, to motivate this work, I'd like to tell you a story.</aside>
 </section>
 
 <section>
-<section id="slide-orgc0abe41">
-<h2 id="orgc0abe41">Targeted therapy for breast cancer: A Tale of Two Tissues</h2>
-<aside class="notes">
+<section id="slide-org51d3e04">
+<h2 id="org51d3e04">Inventing mechanism schema by refactoring biological pathways</h2>
 <p>
-Imagine that it is 1970 and you are a researcher searching for a cure for breast cancer.
+Harrison Pielke-Lombardo
 </p>
 
-</aside>
+<p>
+University of Colorado Anschutz Medical Campus
+</p>
+
+<p>
+11/14/2020
+</p>
 
 </section>
-<section id="slide-orga0ad6e0">
-<h3 id="orga0ad6e0">Prostate cancer analogy</h3>
+</section>
+<section>
+<section id="slide-org28e800c">
+<h2 id="org28e800c">Biological analogies</h2>
+<ul>
+<li>DNA replication &rarr; zipper</li>
+<li>Enzyme activity &rarr; lock-and-key</li>
+<li>Inhibition of tumor growth &rarr; hormone driven cancer (breast vs prostate cancer)</li>
+
+</ul>
+
+
 <div style="width:50%;float:left">
 
-<div id="org3ab6dfc" class="figure">
-<p><img src="images/prostate-cancer-mechanism-no-tamoxifen-trans.png" alt="prostate-cancer-mechanism-no-tamoxifen-trans.png" />
+<div id="orgbab892c" class="figure">
+<p><img src="images/DNA_unzipping.png" alt="DNA_unzipping.png" />
 </p>
 </div>
 </div>
 <div style="width:50%;float: left">
 
-<div id="org31c86f9" class="figure">
-<p><img src="images/breast-cancer-mechanism-no-tamoxifen-trans.png" alt="breast-cancer-mechanism-no-tamoxifen-trans.png" />
-</p>
-</div>
-</div>
-
-
-</section>
-<section id="slide-orgc465113" data-background="/home/harrisonpl/Documents/my-papers/comprehensive_exam/images/tamoxifen-development-paper.png">
-<h3 id="orgc465113">Discovery of tamoxifen</h3>
-
-</section>
-<section id="slide-org110da1c">
-<h3 id="org110da1c">Analogy between prostate and breast cancer</h3>
-<div style="width:33%;float:left">
-
-<div id="org9b38edc" class="figure">
-<p><img src="images/prostate-cancer-mechanism-trans.png" alt="prostate-cancer-mechanism-trans.png" />
-</p>
-</div>
-</div>
-<div style="width:33%;float: left">
-
-<div id="orgda0f105" class="figure">
-<p><img src="images/breast-cancer-mechanism-trans.png" alt="breast-cancer-mechanism-trans.png" />
-</p>
-</div>
-</div>
-<div style="width:33%;float: left">
-
-<div id="org9f8c338" class="figure">
-<p><img src="images/general-cancer-mechanism-trans.png" alt="general-cancer-mechanism-trans.png" />
+<div id="org541cd62" class="figure">
+<p><img src="images/lock-and-key-enzyme.jpg" alt="lock-and-key-enzyme.jpg" />
 </p>
 </div>
 </div>
@@ -82,53 +67,16 @@ Imagine that it is 1970 and you are a researcher searching for a cure for breast
 </section>
 </section>
 <section>
-<section id="slide-org7a0280d">
-<h2 id="org7a0280d">Computational Analogy</h2>
-</section>
-<section id="slide-org5f51ef6">
-<h3 id="org5f51ef6">Definition</h3>
-<blockquote>
-<p>
-The comparison or alignment of two structured representations.
+<section id="slide-orgb44b53a">
+<h2 id="orgb44b53a">Biological Mechanisms</h2>
+<div style="width:50%;float:left">
+
+<div id="org95f4384" class="figure">
+<p><img src="images/darden.jpg" alt="darden.jpg" width="450px" />
 </p>
-</blockquote>
-<p>
-<a class="org-ref-reference" href="#/slide-bibliography">[gentnerComputationalModelsAnalogy2011]</a>
-</p>
-
-</section>
-<section id="slide-org390c905">
-<h3 id="org390c905">Tasks</h3>
-<ul>
-<li>Retrieval</li>
-<li>Mapping</li>
-<li>Abstraction/generalization</li>
-<li>Rerepresentation</li>
-
-</ul>
-
-</section>
-<section id="slide-org8f790e6">
-<h3 id="org8f790e6">Computational methods</h3>
-<ul>
-<li>Retrieval: Copycat/Metacat <a class="org-ref-reference" href="#/slide-bibliography">[hofstadterdouglasr.CopycatProjectModel2016]</a></li>
-<li>Mapping: Structure Mapping Engine (SME) <a class="org-ref-reference" href="#/slide-bibliography">[falkenhainer1986StructureMappingEngine]</a></li>
-<li>Abstraction: SEQL <a class="org-ref-reference" href="#/slide-bibliography">[kuehneSEQLCategoryLearning2000]</a></li>
-
-</ul>
-
-</section>
-</section>
-<section>
-<section id="slide-org16c4776">
-<h2 id="org16c4776">Mechanisms</h2>
-<p>
-How scientists explain "why?"
-</p>
-
-</section>
-<section id="slide-orga0dd354">
-<h3 id="orga0dd354">What is a mechanism?</h3>
+</div>
+</div>
+<div style="width:50%;float: left">
 <blockquote>
 <p>
 Mechanisms are entities and activities organized such that they are productive of regular changes from start or set-up conditions to finish or termination conditions.
@@ -137,10 +85,13 @@ Mechanisms are entities and activities organized such that they are productive o
 <p>
 <a class="org-ref-reference" href="#/slide-bibliography">[machamerThinkingMechanisms2000]</a>
 </p>
+</div>
 
 </section>
-<section id="slide-orgb599c34">
-<h3 id="orgb599c34">What is a mechanism schema?</h3>
+</section>
+<section>
+<section id="slide-orgcdc7be7">
+<h2 id="orgcdc7be7">What is a mechanism schema?</h2>
 <blockquote>
 <p>
 A mechanism schema is a truncated abstract description of a mechanism
@@ -153,14 +104,224 @@ activities.
 </p>
 
 
-<div id="org8f00b01" class="figure">
+<div id="orgc4867eb" class="figure">
 <p><img src="images/darden-mechanism-schema-example.png" alt="darden-mechanism-schema-example.png" />
 </p>
 </div>
 
 </section>
-<section id="slide-org8cf16aa">
-<h3 id="org8cf16aa">Evaluating mechanism schemas: virtues and vices</h3>
+</section>
+<section>
+<section id="slide-org92f2f95">
+<h2 id="org92f2f95">How does biological mechanism schematization relate to computational analogy?</h2>
+<ul>
+<li>Tasks
+<ul>
+<li>Retrieval</li>
+<li>Mapping</li>
+<li><b><span class="underline">Abstraction/generalization</span></b></li>
+<li>Rerepresentation</li>
+
+</ul></li>
+
+</ul>
+
+</section>
+</section>
+<section>
+<section id="slide-org7fdc123">
+<h2 id="org7fdc123">Mechanism Schematization: Breast Cancer vs Prostate Cancer</h2>
+<div style="width:33%;float:left">
+
+<div id="org4a3b903" class="figure">
+<p><img src="images/prostate-cancer-mechanism-trans.png" alt="prostate-cancer-mechanism-trans.png" />
+</p>
+</div>
+
+<p>
+Prostate Cancer
+</p>
+</div>
+<div style="width:33%;float: left">
+
+<div id="orge9c69c8" class="figure">
+<p><img src="images/breast-cancer-mechanism-trans.png" alt="breast-cancer-mechanism-trans.png" />
+</p>
+</div>
+
+<p>
+Breast Cancer
+</p>
+</div>
+<div style="width:33%;float: left">
+
+<div id="org1bbb366" class="figure">
+<p><img src="images/general-cancer-mechanism-trans.png" alt="general-cancer-mechanism-trans.png" />
+</p>
+</div>
+
+<p>
+General Hormone-driven Cancer
+</p>
+</div>
+
+</section>
+</section>
+<section>
+<section id="slide-org73d8253">
+<h2 id="org73d8253">Goal</h2>
+<p>
+Develop and evaluate an automatic mechanism schematization method using existing biomedical ontologies, databases, and knowledge-bases and use the schema to hypothesize new relationships and disease mechanisms.
+</p>
+
+<p>
+<i>Hypothesis</i>: Analogical alignment of concrete mechanisms will produce predictive and externally coherent mechanism schema.
+</p>
+
+</section>
+<section id="slide-orga50e468">
+<h3 id="orga50e468">Starting materials</h3>
+<ul>
+<li>Input
+<ul>
+<li>Causal knowledge &rarr; concrete mechanism graphs (REACTOME/GO-CAMs/MecCog) <a class="org-ref-reference" href="#/slide-bibliography">[fabregatReactomePathwayKnowledgebase2018]</a>,<a class="org-ref-reference" href="#/slide-bibliography">[thomasGeneOntologyCausal2019]</a>,<a class="org-ref-reference" href="#/slide-bibliography">[dardenHarnessingFormalConcepts2018]</a></li>
+<li>Other knowledge &rarr; knowledge graph (KaBOB) <a class="org-ref-reference" href="#/slide-bibliography">[livingstonKaBOBOntologybasedSemantic2015]</a></li>
+
+</ul></li>
+<li>Output
+<ul>
+<li>Mechanism schema</li>
+
+</ul></li>
+<li>Optimization
+<ul>
+<li>Maximize coverage of concrete mechanisms while minimizing information loss</li>
+<li>Minimum common subgraph</li>
+
+</ul></li>
+
+</ul>
+
+</section>
+<section id="slide-org169e39a">
+<h3 id="org169e39a">Algorithm overview</h3>
+<p>
+Given a set of concrete mechanisms and a knowledge graph, find a mechanism schema.
+</p>
+
+<p>
+Step = causal relationship between two entities.
+</p>
+
+<ol>
+<li>Consider every possible step between two entities in the set of concrete mechanisms.</li>
+<li>Score each possible step.</li>
+<li>Assemble high scoring steps into the mechanism schema.</li>
+
+</ol>
+
+
+</section>
+<section id="slide-orge778396">
+<h3 id="orge778396">Final step score equation</h3>
+<div>
+\begin{equation}
+
+S_{GO}(A,B) = \frac
+{\sum_{t \in T_A \cap T_B} (S_A(t) + S_B(t))}
+{SV(A) + SV(B)}
+
+\end{equation}
+
+</div>
+<p>
+<a class="org-ref-reference" href="#/slide-bibliography">[wangNewMethodMeasure2007]</a>
+</p>
+
+<p>
+\[ C(a, b, m) = len(shortestpath(a, b, m)) \]
+</p>
+
+<p>
+\[ P(a, b, M) = \frac{1}{|M|} \sum_{m \in M} S_{GO}(a, a_m) S_{GO}(b, b_m) k^{-C(a_m, b_m, m)} \]
+</p>
+<aside class="notes">
+<p>
+Finally, we come to the equation which encompasses everything we discussed. As you can see, it takes the average of the relationship score over all specific mechanisms. The relationship score penalizes semantically dissimilar proxy entities and causally distant entities. Note that the causal distance calculation is between the proxy entities that we find. The scores for all possible relationships are calculated and high scoring relationships are assembled into the final mechanism abstraction.
+</p>
+
+</aside>
+
+
+
+</section>
+<section id="slide-org1901c45">
+<h3 id="org1901c45">Future directions</h3>
+<ul>
+<li>Case study: oncogenesis via developmental pathways</li>
+<li>Explore hyper-parameters:
+<ul>
+<li>score threshold</li>
+<li>proxy-entity inclusion threshold</li>
+<li>causal path distance weight</li>
+<li>semantic similarity weights</li>
+
+</ul></li>
+
+</ul>
+
+
+</section>
+</section>
+<section>
+<section id="slide-bibliography">
+<h2 id="bibliography">Acknowledgments</h2>
+<ul>
+<li>Advisor: Larry Hunter</li>
+<li>Colorado Biomedical Informatics Training Program grant T15 LM009451</li>
+
+</ul>
+
+<div style="font-size:16px">
+<ul class='org-ref-bib'><li><a id="craverSearchMechanismsDiscoveries2014">[craverSearchMechanismsDiscoveries2014]</a> <a name="craverSearchMechanismsDiscoveries2014"></a>Craver & Darden, In Search of Mechanisms: Discoveries across the Life Sciences, University of Chicago Press (2014).</li>
+<li><a id="dardenHarnessingFormalConcepts2018">[dardenHarnessingFormalConcepts2018]</a> <a name="dardenHarnessingFormalConcepts2018"></a>Darden, Kundu, Pal & Moult, Harnessing Formal Concepts of Biological Mechanism to Analyze Human Disease, <i>PLoS Computational Biology</i>, <b>14(12)</b>, 1-10 (2018). <a href="http://dx.doi.org/10.1371/journal.pcbi.1006540">doi</a>.</li>
+<li><a id="dardenStrategiesDiscoveringMechanisms2002">[dardenStrategiesDiscoveringMechanisms2002]</a> <a name="dardenStrategiesDiscoveringMechanisms2002"></a>Darden, Strategies for Discovering Mechanisms: Schema Instantiation, Modular Subassembly, Forward/Backward Chaining, <i>Philosophy of Science</i>, <b>69(S3)</b>, S354-S365 (2002). <a href="http://dx.doi.org/10.1086/341858">doi</a>.</li>
+<li><a id="fabregatReactomePathwayKnowledgebase2018">[fabregatReactomePathwayKnowledgebase2018]</a> <a name="fabregatReactomePathwayKnowledgebase2018"></a>Fabregat, Jupe, Matthews, Sidiropoulos, Gillespie, Garapati, Haw, Jassal, Korninger, May, Milacic, Roca, Rothfels, Sevilla, Shamovsky, Shorser, Varusai, Viteri, Weiser, Wu, Stein, Hermjakob & D'Eustachio, The Reactome Pathway Knowledgebase, <i>Nucleic Acids Research</i>, <b>46(D1)</b>, D649-D655 (2018). <a href="http://dx.doi.org/10.1093/nar/gkx1132">doi</a>.</li>
+<li><a id="livingstonKaBOBOntologybasedSemantic2015">[livingstonKaBOBOntologybasedSemantic2015]</a> <a name="livingstonKaBOBOntologybasedSemantic2015"></a>Livingston, Bada, Baumgartner & Hunter, KaBOB: Ontology-Based Semantic Integration of Biomedical Databases, <i>BMC Bioinformatics</i>, <b>16(1)</b>, 126 (2015). <a href="http://dx.doi.org/10.1186/s12859-015-0559-3">doi</a>.</li>
+<li><a id="machamerThinkingMechanisms2000">[machamerThinkingMechanisms2000]</a> <a name="machamerThinkingMechanisms2000"></a>Machamer, Darden & Craver, Thinking about Mechanisms, <i>Philosophy of Science</i>, <b>67(1)</b>, 1-25 (2000). <a href="http://dx.doi.org/10.1086/392759">doi</a>.</li>
+<li><a id="mitchellCanGPT3Make2020">[mitchellCanGPT3Make2020]</a> <a name="mitchellCanGPT3Make2020"></a>@miscmitchellCanGPT3Make2020,
+  title = Can GPT-3 Make Analogies?,
+  author = Mitchell, Melanie,
+  year = 2020,
+  month = aug,
+  abstract = By Melanie Mitchell,
+  file = /home/harrisonpl/Zotero/storage/VY27Q755/can-gpt-3-make-analogies-16436605c446.html,
+  howpublished = https://medium.com/@melaniemitchell.me/can-gpt-3-make-analogies-16436605c446,
+  journal = Medium,
+  language = en
+</li>
+<li><a id="pawlikRTEDRobustAlgorithm2011">[pawlikRTEDRobustAlgorithm2011]</a> <a name="pawlikRTEDRobustAlgorithm2011"></a>Pawlik & Augsten, RTED: A Robust Algorithm for the Tree Edit Distance, <i>arXiv:1201.0230 [cs]</i>,  (2011).</li>
+<li><a id="thomasGeneOntologyCausal2019">[thomasGeneOntologyCausal2019]</a> <a name="thomasGeneOntologyCausal2019"></a>Thomas, Hill, Mi, Osumi-Sutherland, Van Auken, Carbon, Balhoff, Albou, Good, Gaudet, Lewis & Mungall, Gene Ontology Causal Activity Modeling (GO-CAM) Moves beyond GO Annotations to Structured Descriptions of Biological Functions and Systems, <i>Nature Genetics</i>, <b>51(10)</b>, 1429-1433 (2019). <a href="http://dx.doi.org/10.1038/s41588-019-0500-1">doi</a>.</li>
+<li><a id="wangNewMethodMeasure2007">[wangNewMethodMeasure2007]</a> <a name="wangNewMethodMeasure2007"></a>Wang, Du, Payattakool, Yu & Chen, A New Method to Measure the Semantic Similarity of GO Terms, <i>Bioinformatics</i>, <b>23(10)</b>, 1274-1281 (2007). <a href="http://dx.doi.org/10.1093/bioinformatics/btm087">doi</a>.</li>
+</ul>
+</div>
+
+</section>
+</section>
+<section>
+<section id="slide-orge8d1ce8">
+<h2 id="orge8d1ce8">Questions?</h2>
+<aside class="notes">
+<ul>
+<li>One good example is all you need. For my work, two examples are what you need.</li>
+
+</ul>
+
+</aside>
+
+</section>
+<section id="slide-orge4dde41">
+<h3 id="orge4dde41">Evaluating mechanism schemas: virtues and vices</h3>
 <aside class="notes">
 <p>
 Get audience input. What makes a good mechanism? What makes a bad mechanism?
@@ -252,101 +413,13 @@ Get audience input. What makes a good mechanism? What makes a bad mechanism?
 </p>
 
 </section>
-<section id="slide-org8d41976">
-<h3 id="org8d41976">Use of mechanism schemas</h3>
-<ul>
-<li>Indexing/retrieval</li>
-<li>Comparison</li>
-<li>Transformation</li>
-<li>Induction</li>
-
-</ul>
-
+<section id="slide-orgb167346">
+<h3 id="orgb167346">Algorithm</h3>
+<div class="outline-text-3" id="text-orgb167346">
+</div>
 </section>
-<section id="slide-org22558f3">
-<h3 id="org22558f3">What do we expect to see during mechanism schematization?</h3>
-<ul>
-<li>Abstraction of entities</li>
-<li>Modularization of activities</li>
-<li>Generalization of steps</li>
-
-</ul>
-</section>
-<section id="slide-org38d4809">
-<h3 id="org38d4809">Examples</h3>
-<ul>
-<li>DNA replication</li>
-<li>Protein synthesis</li>
-<li>Enzyme activity</li>
-<li>Oxydative phosphorylation</li>
-<li>Inhibition of tumor growth</li>
-
-</ul>
-
-
-</section>
-</section>
-<section>
-<section id="slide-org6b515d2">
-<h2 id="org6b515d2">Aim 1</h2>
-<p>
-Develop and evaluate an automatic mechanism schematization method using existing biomedical ontologies, databases, and knowledge-bases and use the schema to hypothesize new relationships and disease mechanisms.
-</p>
-
-<p>
-<i>Hypothesis</i>: Analogical alignment of concrete mechanisms will produce predictive and externally coherent mechanism schema.
-</p>
-
-</section>
-<section id="slide-org626b1a0">
-<h3 id="org626b1a0">Approach</h3>
-<ul>
-<li>Algorithm</li>
-<li>Implementation</li>
-<li>Evaluation</li>
-<li>Preliminary results</li>
-
-</ul>
-
-</section>
-<section id="slide-orgec5aabe">
-<h3 id="orgec5aabe">Starting materials</h3>
-<ul>
-<li>Causal knowledge &rarr; concrete mechanism graphs</li>
-<li>Other knowledge &rarr; knowledge graph</li>
-
-</ul>
-
-</section>
-<section id="slide-org48a174b">
-<h3 id="org48a174b">Goal</h3>
-<ul>
-<li>Concrete mechanisms &rarr; schematization &rarr; mechanism schema</li>
-<li>Optimization: maximize coverage of concrete mechanisms while minimizing information loss</li>
-
-</ul>
-
-</section>
-<section id="slide-orgcd5e650">
-<h3 id="orgcd5e650">Algorithm overview</h3>
-<p>
-Given a set of concrete mechanisms and a knowledge graph, find a mechanism schema.
-</p>
-
-<p>
-Step = causal relationship between two entities.
-</p>
-
-<ol>
-<li>Consider every possible step between two entities in the set of concrete mechanisms.</li>
-<li>Score each possible step.</li>
-<li>Assemble high scoring steps into the mechanism schema.</li>
-
-</ol>
-
-</section>
-<section id="slide-org49c8d08">
-<h3 id="org49c8d08">Scoring a step for each specific mechanism</h3>
+<section id="slide-orge35cae1">
+<h4 id="orge35cae1">Scoring a step for each specific mechanism</h4>
 <p>
 Is there an analogous step in this mechanism?
 </p>
@@ -358,8 +431,8 @@ Is there an analogous step in this mechanism?
 </ol>
 
 </section>
-<section id="slide-org3d16476">
-<h3 id="org3d16476">What are proxy entities?</h3>
+<section id="slide-org616882b">
+<h4 id="org616882b">What are proxy entities?</h4>
 <p>
 Step: tamoxifen &rarr; testosterone
 </p>
@@ -370,14 +443,14 @@ What is an equivalent step between tamoxifen and testosterone in the prostate ca
 
 <div style="width:50%;float:left">
 
-<div id="orgf387a71" class="figure">
+<div id="orgbab49ec" class="figure">
 <p><img src="images/prostate-cancer-mechanism-trans.png" alt="prostate-cancer-mechanism-trans.png" />
 </p>
 </div>
 </div>
 <div style="width:50%;float: left">
 
-<div id="org245105e" class="figure">
+<div id="org2611205" class="figure">
 <p><img src="images/breast-cancer-mechanism-trans.png" alt="breast-cancer-mechanism-trans.png" />
 </p>
 </div>
@@ -389,98 +462,15 @@ Warning: up next is a quite of bit of math which I am actually going to go over 
 </p>
 
 </aside>
+
 </section>
-<section id="slide-orgd44ce23">
-<h3 id="orgd44ce23">Semantic Similarity <a class="org-ref-reference" href="#/slide-bibliography">[wangNewMethodMeasure2007]</a></h3>
-<div>
-\begin{equation}
-
-S_A(t) = \begin{cases}
-1 \mbox{ if } t = A \\
-\max{\{w_e \star S_A(t^\prime) | t^\prime \in childrenof(t)\}} \mbox{ if } t \neq A
-\end{cases}
-
-\end{equation}
-
+<section id="slide-orgaf046bd">
+<h3 id="orgaf046bd">Evaluation</h3>
+<div class="outline-text-3" id="text-orgaf046bd">
 </div>
-
-<div>
-\begin{equation}
-
-SV(A) = \sum_{t \in T_A} S_A(t)
-
-\end{equation}
-
-</div>
-
-<div>
-\begin{equation}
-
-S_{GO}(A,B) = \frac
-{\sum_{t \in T_A \cap T_B} (S_A(t) + S_B(t))}
-{SV(A) + SV(B)}
-
-\end{equation}
-
-</div>
-
-<aside class="notes">
-<p>
-I have to move quick but here's the math behind calculating the semantic similarity. It's taken from the method in this paper by Wang et al for calculating semantic similarity between GO terms.
-</p>
-
-</aside>
-
-
 </section>
-<section id="slide-orge6a8735">
-<h3 id="orge6a8735">Causal path distance</h3>
-<p>
-\[ C(a, b, m) = len(shortestpath(a, b, m)) \]
-</p>
-
-<aside class="notes">
-<p>
-The causal distance is really the meat of this method. The idea is that we walk along causal edges in our mechanism graph to determine if an entity is causally related to another. The assumption is that closer entities are more likely to be causally related, generally.
-</p>
-
-</aside>
-
-
-</section>
-<section id="slide-org5ecc0c9">
-<h3 id="org5ecc0c9">Final step score equation</h3>
-<p>
-\[ P(a, b, M) = \frac{1}{|M|} \sum_{m \in M} S_{GO}(a, a_m) S_{GO}(b, b_m) k^{-C(a_m, b_m, m)} \]
-</p>
-<aside class="notes">
-<p>
-Finally, we come to the equation which encompasses everything we discussed. As you can see, it takes the average of the relationship score over all specific mechanisms. The relationship score penalizes semantically dissimilar proxy entities and causally distant entities. Note that the causal distance calculation is between the proxy entities that we find. The scores for all possible relationships are calculated and high scoring relationships are assembled into the final mechanism abstraction.
-</p>
-
-</aside>
-
-</section>
-<section id="slide-org7bb5d75">
-<h3 id="org7bb5d75">Constructing the mechanism schema</h3>
-<ol>
-<li>Calculate step scores \(P(a, b, M)\) for all \(a\) and \(b\) in \(E_m\) for all \(m\) in \(M\).</li>
-<li>If \(P(a, b, M) \geq \theta\), add the step to the mechanism schema.</li>
-
-</ol>
-
-</section>
-<section id="slide-org93edec3">
-<h3 id="org93edec3">Actual implementation</h3>
-<ul>
-<li>Causal knowledge &rarr; REACTOME/GO-CAMs/MecCog <a class="org-ref-reference" href="#/slide-bibliography">[fabregatReactomePathwayKnowledgebase2018]</a>,<a class="org-ref-reference" href="#/slide-bibliography">[thomasGeneOntologyCausal2019]</a>,<a class="org-ref-reference" href="#/slide-bibliography">[dardenHarnessingFormalConcepts2018]</a></li>
-<li>Other knowledge &rarr; KaBOB <a class="org-ref-reference" href="#/slide-bibliography">[livingstonKaBOBOntologybasedSemantic2015]</a></li>
-
-</ul>
-
-</section>
-<section id="slide-orgf9d229c">
-<h3 id="orgf9d229c">Prediction evaluation using leave-one out link prediction</h3>
+<section id="slide-orgdf711af">
+<h4 id="orgdf711af">Prediction evaluation using leave-one out link prediction</h4>
 <ul>
 <li>Input: GO-CAMs as concrete mechanisms</li>
 <li>Gold standard: Left out mechanism steps</li>
@@ -488,8 +478,8 @@ Finally, we come to the equation which encompasses everything we discussed. As y
 
 </ul>
 </section>
-<section id="slide-org113d07b">
-<h3 id="org113d07b">External coherence evaluation using hierarchical clustering</h3>
+<section id="slide-orgab7c0af">
+<h4 id="orgab7c0af">External coherence evaluation using hierarchical clustering</h4>
 <ul>
 <li>Input: REACTOME pathways as concrete mechanisms</li>
 <li>Gold standard: Gene Ontology Biological Process (GO-BP) hierarchy</li>
@@ -497,149 +487,39 @@ Finally, we come to the equation which encompasses everything we discussed. As y
 
 </ul>
 </section>
-<section id="slide-orgb7749fd">
-<h3 id="orgb7749fd">Unification vs superficiality evaluation optimizing coverage vs information loss</h3>
+<section id="slide-org1941e3e">
+<h4 id="org1941e3e">Unification vs superficiality evaluation optimizing coverage vs information loss</h4>
 <ul>
 <li>Input: GO-CAMs or REACTOME pathways</li>
 <li>Gold standard: None exists. Manual inspection</li>
 <li>Success metric: Comparison of coverage to information loss</li>
 
 </ul>
+
 </section>
-<section id="slide-org8d55b86">
-<h3 id="org8d55b86">Preliminary results</h3>
-<div style="width:33%;float:left">
-
-<div id="org4342c2b" class="figure">
-<p><img src="images/prostate-cancer-mechanism-trans.png" alt="prostate-cancer-mechanism-trans.png" />
-</p>
-</div>
-</div>
-<div style="width:33%;float: left">
-
-<div id="orga2868d2" class="figure">
-<p><img src="images/breast-cancer-mechanism-trans.png" alt="breast-cancer-mechanism-trans.png" />
-</p>
-</div>
-</div>
-<div style="width:33%;float: left">
-
-<div id="orgff69ec0" class="figure">
-<p><img src="images/general-cancer-mechanism-trans.png" alt="general-cancer-mechanism-trans.png" />
-</p>
-</div>
-</div>
-</section>
-<section id="slide-org3155a3b">
-<h3 id="org3155a3b">Future directions</h3>
+<section id="slide-org8a5b469">
+<h3 id="org8a5b469">What do we expect to see during mechanism schematization?</h3>
 <ul>
-<li>Case study: oncogenesis via developmental pathways</li>
-<li>Explore hyper-parameters:
-<ul>
-<li>score threshold</li>
-<li>proxy-entity inclusion threshold</li>
-<li>causal path distance weight</li>
-<li>semantic similarity weights</li>
-
-</ul></li>
+<li>Abstraction of entities</li>
+<li>Modularization of activities</li>
+<li>Generalization of steps</li>
 
 </ul>
 
 </section>
-</section>
-<section>
-<section id="slide-orgfa3d8a3">
-<h2 id="orgfa3d8a3">Overview</h2>
-
-<div id="orgb6c25e2" class="figure">
-<p><img src="images/thesis-outline.png" alt="thesis-outline.png" />
-</p>
-</div>
-</section>
-</section>
-<section>
-<section id="slide-org6c5fe0f">
-<h2 id="org6c5fe0f">Future directions</h2>
-<div class="outline-text-2" id="text-org6c5fe0f">
-</div>
-</section>
-<section id="slide-org1865489">
-<h3 id="org1865489">Connection between oncogenesis and developmental pathways</h3>
-
-</section>
-<section id="slide-org596040f">
-<h3 id="org596040f">Logical coherence of mechanisms</h3>
-
-</section>
-<section id="slide-orgc96d0b1">
-<h3 id="orgc96d0b1">Using extracted relations from the literature to inform mechanism schematization</h3>
-
-</section>
-<section id="slide-org5214cdf">
-<h3 id="org5214cdf">Using mechanism schema to inform relation extraction</h3>
-
-</section>
-</section>
-<section>
-<section id="slide-bibliography">
-<h2 id="bibliography">Bibliography</h2>
-<ul class='org-ref-bib'><li><a id="craverSearchMechanismsDiscoveries2014">[craverSearchMechanismsDiscoveries2014]</a> <a name="craverSearchMechanismsDiscoveries2014"></a>Craver & Darden, In Search of Mechanisms: Discoveries across the Life Sciences, University of Chicago Press (2014).</li>
-<li><a id="dardenHarnessingFormalConcepts2018">[dardenHarnessingFormalConcepts2018]</a> <a name="dardenHarnessingFormalConcepts2018"></a>Darden, Kundu, Pal & Moult, Harnessing Formal Concepts of Biological Mechanism to Analyze Human Disease, <i>PLoS Computational Biology</i>, <b>14(12)</b>, 1-10 (2018). <a href="http://dx.doi.org/10.1371/journal.pcbi.1006540">doi</a>.</li>
-<li><a id="dardenStrategiesDiscoveringMechanisms2002">[dardenStrategiesDiscoveringMechanisms2002]</a> <a name="dardenStrategiesDiscoveringMechanisms2002"></a>Darden, Strategies for Discovering Mechanisms: Schema Instantiation, Modular Subassembly, Forward/Backward Chaining, <i>Philosophy of Science</i>, <b>69(S3)</b>, S354-S365 (2002). <a href="http://dx.doi.org/10.1086/341858">doi</a>.</li>
-<li><a id="fabregatReactomePathwayKnowledgebase2018">[fabregatReactomePathwayKnowledgebase2018]</a> <a name="fabregatReactomePathwayKnowledgebase2018"></a>Fabregat, Jupe, Matthews, Sidiropoulos, Gillespie, Garapati, Haw, Jassal, Korninger, May, Milacic, Roca, Rothfels, Sevilla, Shamovsky, Shorser, Varusai, Viteri, Weiser, Wu, Stein, Hermjakob & D'Eustachio, The Reactome Pathway Knowledgebase, <i>Nucleic Acids Research</i>, <b>46(D1)</b>, D649-D655 (2018). <a href="http://dx.doi.org/10.1093/nar/gkx1132">doi</a>.</li>
-<li><a id="falkenhainer1986StructureMappingEngine">[falkenhainer1986StructureMappingEngine]</a> <a name="falkenhainer1986StructureMappingEngine"></a>Falkenhainer, Forbus & Gentner, 1986 - The Structure-Mapping Engine, <i></i>,  6 .</li>
-<li><a id="gentnerComputationalModelsAnalogy2011">[gentnerComputationalModelsAnalogy2011]</a> <a name="gentnerComputationalModelsAnalogy2011"></a>Gentner & Forbus, Computational Models of Analogy, <i>Wiley Interdisciplinary Reviews: Cognitive Science</i>, <b>2</b>, (2011). <a href="http://dx.doi.org/10.1002/wcs.105">doi</a>.</li>
-<li><a id="hofstadterdouglasr.CopycatProjectModel2016">[hofstadterdouglasr.CopycatProjectModel2016]</a> <a name="hofstadterdouglasr.CopycatProjectModel2016"></a>Hofstadter & Mitchell, The Copycat Project: A Model of Mental Fluidity and Analogy-Making, <i>ACM SIGEVOlution</i>, <b>8(2)</b>, 4-4 (2016). <a href="http://dx.doi.org/10.1145/2907674.2907678">doi</a>.</li>
-<li><a id="kuehneSEQLCategoryLearning2000">[kuehneSEQLCategoryLearning2000]</a> <a name="kuehneSEQLCategoryLearning2000"></a>Kuehne, Forbus, Gentner & 22.2000.770 Quinn, SEQL: Category Learning as Progressive Abstraction Using Structure Mapping, <i>22nd Annual Meeting of the Cognitive Science Society</i>,  (2000).</li>
-<li><a id="livingstonKaBOBOntologybasedSemantic2015">[livingstonKaBOBOntologybasedSemantic2015]</a> <a name="livingstonKaBOBOntologybasedSemantic2015"></a>Livingston, Bada, Baumgartner & Hunter, KaBOB: Ontology-Based Semantic Integration of Biomedical Databases, <i>BMC Bioinformatics</i>, <b>16(1)</b>, 126 (2015). <a href="http://dx.doi.org/10.1186/s12859-015-0559-3">doi</a>.</li>
-<li><a id="machamerThinkingMechanisms2000">[machamerThinkingMechanisms2000]</a> <a name="machamerThinkingMechanisms2000"></a>Machamer, Darden & Craver, Thinking about Mechanisms, <i>Philosophy of Science</i>, <b>67(1)</b>, 1-25 (2000). <a href="http://dx.doi.org/10.1086/392759">doi</a>.</li>
-<li><a id="mitchellCanGPT3Make2020">[mitchellCanGPT3Make2020]</a> <a name="mitchellCanGPT3Make2020"></a>@miscmitchellCanGPT3Make2020,
-  title = Can GPT-3 Make Analogies?,
-  author = Mitchell, Melanie,
-  year = 2020,
-  month = aug,
-  abstract = By Melanie Mitchell,
-  file = /home/harrisonpl/Zotero/storage/VY27Q755/can-gpt-3-make-analogies-16436605c446.html,
-  howpublished = https://medium.com/@melaniemitchell.me/can-gpt-3-make-analogies-16436605c446,
-  journal = Medium,
-  language = en
-</li>
-<li><a id="pawlikRTEDRobustAlgorithm2011">[pawlikRTEDRobustAlgorithm2011]</a> <a name="pawlikRTEDRobustAlgorithm2011"></a>Pawlik & Augsten, RTED: A Robust Algorithm for the Tree Edit Distance, <i>arXiv:1201.0230 [cs]</i>,  (2011).</li>
-<li><a id="thomasGeneOntologyCausal2019">[thomasGeneOntologyCausal2019]</a> <a name="thomasGeneOntologyCausal2019"></a>Thomas, Hill, Mi, Osumi-Sutherland, Van Auken, Carbon, Balhoff, Albou, Good, Gaudet, Lewis & Mungall, Gene Ontology Causal Activity Modeling (GO-CAM) Moves beyond GO Annotations to Structured Descriptions of Biological Functions and Systems, <i>Nature Genetics</i>, <b>51(10)</b>, 1429-1433 (2019). <a href="http://dx.doi.org/10.1038/s41588-019-0500-1">doi</a>.</li>
-<li><a id="wangNewMethodMeasure2007">[wangNewMethodMeasure2007]</a> <a name="wangNewMethodMeasure2007"></a>Wang, Du, Payattakool, Yu & Chen, A New Method to Measure the Semantic Similarity of GO Terms, <i>Bioinformatics</i>, <b>23(10)</b>, 1274-1281 (2007). <a href="http://dx.doi.org/10.1093/bioinformatics/btm087">doi</a>.</li>
-</ul>
-
-</section>
-</section>
-<section>
-<section id="slide-org653bc38">
-<h2 id="org653bc38">Acknowledgments</h2>
+<section id="slide-org8726667">
+<h3 id="org8726667">Use of mechanism schemas</h3>
 <ul>
-<li>Advisor: Larry Hunter</li>
-<li>Committee: James Costello, Laura Saba, Manuel Lladser, and Robin Dowell</li>
-<li>Laura Stevens</li>
-<li>Hunter lab: Mike Bada, Bill Baumgartner, Elizabeth White (alumni)</li>
-<li>Computational Bioscience Program</li>
-<li>Colorado Biomedical Informatics Training Program grant T15 LM009451</li>
+<li>Indexing/retrieval</li>
+<li>Comparison</li>
+<li>Transformation</li>
+<li>Induction</li>
 
 </ul>
 
 </section>
-</section>
-<section>
-<section id="slide-org2c44347">
-<h2 id="org2c44347">Questions?</h2>
-<aside class="notes">
-<ul>
-<li>One good example is all you need. For my work, two examples are what you need.</li>
-
-</ul>
-
-</aside>
-
-</section>
-<section id="slide-orgb59de90">
-<h3 id="orgb59de90">Role of statistics</h3>
+<section id="slide-org18699df">
+<h3 id="org18699df">Role of statistics</h3>
 <ul>
 <li>Simulate generality by compiling lots of specific examples and averaging over them</li>
 <li>Use knowledge to constrain statistical analysis</li>
@@ -648,8 +528,8 @@ Finally, we come to the equation which encompasses everything we discussed. As y
 </section>
 </section>
 <section>
-<section id="slide-orge5ef878">
-<h2 id="orge5ef878">Quotes</h2>
+<section id="slide-org3a722d5">
+<h2 id="org3a722d5">Quotes</h2>
 <blockquote>
 <p>
 Less is more.

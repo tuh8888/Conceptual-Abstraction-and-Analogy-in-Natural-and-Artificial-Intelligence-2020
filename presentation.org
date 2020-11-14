@@ -1,5 +1,5 @@
 #+title: Automatic Schematization of Biological Mechanisms Via Alignment and Abstraction of Causal Relations Among Domain Specific Causal Pathways
-#+date: 10/29/2020
+#+date: 11/14/2020
 #+OPTIONS: toc:nil num:nil reveal_progress:true reveal_history:true reveal_width:"100%"
 #+REVEAL_INIT_OPTIONS: slideNumber:false
 #+REVEAL_EXTRA_CSS: custom.css
@@ -7,22 +7,46 @@
 #+LATEX_HEADER: \usepackage[backend=biber,style=alphabetic]{biblatex}
 #+LATEX_HEADER: \addbibresource{My_Library.bib}
 #+REVEAL_ROOT: ./node_modules/reveal.js
-#+REVEAL_TITLE_SLIDE: <h2 class="title">%t</h2><p class="author">%a, University of Colorado Anschutz Medical Campus</p><p class="date">%d</p><aside class="notes">Hello. My name is Harrison Pielke-Lombardo and I want to start by saying thank you for coming this morning. Today, I'll be presenting my plan for completing my thesis work and the work I've already accomplished towards achieving that goal. Supervising me on this work is my advisor Larry Hunter as well as my thesis committee which is composed of Laura Saba, Jim Costello, Manuel Lladser, and Robin Dowell. Please, if you could hold your questions until the end. I'll try to leave time for them. Unless you're on my committee in which case please stop me if I've lost you. Afterward, there'll be time for the public to ask me questions and then you guys will leave for the private questioning session with just my committee. With that let's get started. My title for this work is "%t". Let's break that down. In this program, there is an emphasis on creating new computational methods to solve biological problems. So I will be presenting a few novel methods. Their goal will be schematizing biological mechanisms. I'll get to what I mean by mechanism in detail later. Schematization is the process of generalizing something. In this case, generalizing biological mechanisms. Scalable means that the methods will work on the kind of large, information-rich data and knowledge we find in biological problems. Systematic means these methods aren't just one-offs but part of a coherent set of tools. So this work is a set of computational tools for solving large, complex biological problems by generalizing the biological mechanisms we know about. Ok, so hopefully that gives you a basic overview. Next, to motivate this work, I'd like to tell you a story.</aside>
+#+REVEAL_TITLE_SLIDE: <h2 class="title">%t</h2><p class="author">%a</p><p>University of Colorado Anschutz Medical Campus</p><p class="date">%d</p><aside class="notes">Hello. My name is Harrison Pielke-Lombardo and I want to start by saying thank you for coming this morning. Today, I'll be presenting my plan for completing my thesis work and the work I've already accomplished towards achieving that goal. Supervising me on this work is my advisor Larry Hunter as well as my thesis committee which is composed of Laura Saba, Jim Costello, Manuel Lladser, and Robin Dowell. Please, if you could hold your questions until the end. I'll try to leave time for them. Unless you're on my committee in which case please stop me if I've lost you. Afterward, there'll be time for the public to ask me questions and then you guys will leave for the private questioning session with just my committee. With that let's get started. My title for this work is "%t". Let's break that down. In this program, there is an emphasis on creating new computational methods to solve biological problems. So I will be presenting a few novel methods. Their goal will be schematizing biological mechanisms. I'll get to what I mean by mechanism in detail later. Schematization is the process of generalizing something. In this case, generalizing biological mechanisms. Scalable means that the methods will work on the kind of large, information-rich data and knowledge we find in biological problems. Systematic means these methods aren't just one-offs but part of a coherent set of tools. So this work is a set of computational tools for solving large, complex biological problems by generalizing the biological mechanisms we know about. Ok, so hopefully that gives you a basic overview. Next, to motivate this work, I'd like to tell you a story.</aside>
 
+* Inventing mechanism schema by refactoring biological pathways
+  Harrison Pielke-Lombardo
+
+  University of Colorado Anschutz Medical Campus
+
+  11/14/2020
 
 * Biological analogies
-  - DNA replication
-  - Protein synthesis
-  - Enzyme activity
-  - Oxydative phosphorylation
-  - Inhibition of tumor growth
+  - DNA replication \rarr zipper
+  - Enzyme activity \rarr lock-and-key
+  - Inhibition of tumor growth \rarr hormone driven cancer (breast vs prostate cancer)
+
+
+  #+REVEAL_HTML: <div style="width:50%;float:left">
+    file:images/DNA_unzipping.png
+  #+REVEAL_HTML: </div>
+  #+REVEAL_HTML: <div style="width:50%;float: left">
+    file:images/lock-and-key-enzyme.jpg
+  #+REVEAL_HTML: </div>
+
+ #+BEGIN_NOTES
+ I want to start by emphasizing the importance of analogies in helping biologists understand many biological phenomena.
+ #+END_NOTES
+
 
 * Biological Mechanisms
 
+
+  #+REVEAL_HTML: <div style="width:50%;float:left">
+  #+attr_html: :width 450px
+    file:images/darden.jpg
+  #+REVEAL_HTML: </div>
+  #+REVEAL_HTML: <div style="width:50%;float: left">
   #+begin_quote
   Mechanisms are entities and activities organized such that they are productive of regular changes from start or set-up conditions to finish or termination conditions.
   #+end_quote
   cite:machamerThinkingMechanisms2000
+  #+REVEAL_HTML: </div>
 
 * What is a mechanism schema?
   #+begin_quote
@@ -39,19 +63,25 @@
   - Tasks
      - Retrieval
      - Mapping
-     - Abstraction/generalization
+     - *_Abstraction/generalization_*
      - Rerepresentation
 
 * Mechanism Schematization: Breast Cancer vs Prostate Cancer
 
   #+REVEAL_HTML: <div style="width:33%;float:left">
   [[file:images/prostate-cancer-mechanism-trans.png]]
+
+  Prostate Cancer
   #+REVEAL_HTML: </div>
   #+REVEAL_HTML: <div style="width:33%;float: left">
   [[file:images/breast-cancer-mechanism-trans.png]]
+
+  Breast Cancer
   #+REVEAL_HTML: </div>
   #+REVEAL_HTML: <div style="width:33%;float: left">
   [[file:images/general-cancer-mechanism-trans.png]]
+
+  General Hormone-driven Cancer
   #+REVEAL_HTML: </div>
 
 * Goal
@@ -109,16 +139,17 @@
      - semantic similarity weights
 
 
-* Bibliography
+* Acknowledgments
   :PROPERTIES:
   :CREATED:  [2020-10-24 Sat 04:27]
   :CUSTOM_ID: bibliography
   :END:
-  printbibliography:My_Library.bib
-
-* Acknowledgments
   - Advisor: Larry Hunter
   - Colorado Biomedical Informatics Training Program grant T15 LM009451
+
+  #+REVEAL_HTML: <div style="font-size:16px">
+  printbibliography:My_Library.bib
+  #+REVEAL_HTML: </div>
 
 * Questions?
   #+BEGIN_NOTES
